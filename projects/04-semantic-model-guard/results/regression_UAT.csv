@@ -1,0 +1,101 @@
+check,class,reason
+by_lob::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_lob::Avg Paid per Claim,IDENTICAL,
+by_lob::Avg Reserve,IDENTICAL,
+by_lob::Broker Paid,EXPECTED,broken before; removed by trim
+by_lob::Claim Count,IDENTICAL,
+by_lob::Closed Paid,IDENTICAL,
+by_lob::Commission,EXPECTED,broken before; removed by trim
+by_lob::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_lob::Incurred,IDENTICAL,
+by_lob::Legacy Severity,EXPECTED,broken before; removed by trim
+by_lob::Max Paid,IDENTICAL,
+by_lob::Min Reserve,IDENTICAL,
+by_lob::Net Paid,IDENTICAL,
+by_lob::Open Claims,IDENTICAL,
+by_lob::Open Ratio,IDENTICAL,
+by_lob::Paid Growth,EXPECTED,broken before; removed by trim
+by_lob::Paid Last Year,EXPECTED,broken before; removed by trim
+by_lob::Paid to Reserve,IDENTICAL,
+by_lob::Policies With Claims,IDENTICAL,
+by_lob::Reopen Paid,EXPECTED,broken before; removed by trim
+by_lob::Reserve Movement,EXPECTED,broken before; removed by trim
+by_lob::Total Paid,IDENTICAL,
+by_lob::Total Recoveries,IDENTICAL,
+by_lob::Total Reserve,IDENTICAL,
+by_product::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_product::Avg Paid per Claim,IDENTICAL,
+by_product::Avg Reserve,IDENTICAL,
+by_product::Broker Paid,EXPECTED,broken before; removed by trim
+by_product::Claim Count,IDENTICAL,
+by_product::Closed Paid,IDENTICAL,
+by_product::Commission,EXPECTED,broken before; removed by trim
+by_product::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_product::Incurred,IDENTICAL,
+by_product::Legacy Severity,EXPECTED,broken before; removed by trim
+by_product::Max Paid,IDENTICAL,
+by_product::Min Reserve,IDENTICAL,
+by_product::Net Paid,IDENTICAL,
+by_product::Open Claims,IDENTICAL,
+by_product::Open Ratio,IDENTICAL,
+by_product::Paid Growth,EXPECTED,broken before; removed by trim
+by_product::Paid Last Year,EXPECTED,broken before; removed by trim
+by_product::Paid to Reserve,IDENTICAL,
+by_product::Policies With Claims,IDENTICAL,
+by_product::Reopen Paid,EXPECTED,broken before; removed by trim
+by_product::Reserve Movement,EXPECTED,broken before; removed by trim
+by_product::Total Paid,IDENTICAL,
+by_product::Total Recoveries,IDENTICAL,
+by_product::Total Reserve,IDENTICAL,
+by_year::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_year::Avg Paid per Claim,IDENTICAL,
+by_year::Avg Reserve,IDENTICAL,
+by_year::Broker Paid,EXPECTED,broken before; removed by trim
+by_year::Claim Count,IDENTICAL,
+by_year::Closed Paid,IDENTICAL,
+by_year::Commission,EXPECTED,broken before; removed by trim
+by_year::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_year::Incurred,IDENTICAL,
+by_year::Legacy Severity,EXPECTED,broken before; removed by trim
+by_year::Max Paid,IDENTICAL,
+by_year::Min Reserve,IDENTICAL,
+by_year::Net Paid,IDENTICAL,
+by_year::Open Claims,IDENTICAL,
+by_year::Open Ratio,IDENTICAL,
+by_year::Paid Growth,EXPECTED,broken before; removed by trim
+by_year::Paid Last Year,EXPECTED,broken before; removed by trim
+by_year::Paid to Reserve,IDENTICAL,
+by_year::Policies With Claims,IDENTICAL,
+by_year::Reopen Paid,EXPECTED,broken before; removed by trim
+by_year::Reserve Movement,EXPECTED,broken before; removed by trim
+by_year::Total Paid,IDENTICAL,
+by_year::Total Recoveries,IDENTICAL,
+by_year::Total Reserve,IDENTICAL,
+rowcount::DimDate,IDENTICAL,
+rowcount::DimPolicy,IDENTICAL,
+rowcount::DimProduct,IDENTICAL,
+rowcount::FactClaims,IDENTICAL,
+total::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+total::Avg Paid per Claim,IDENTICAL,
+total::Avg Reserve,IDENTICAL,
+total::Broker Paid,EXPECTED,broken before; removed by trim
+total::Claim Count,IDENTICAL,
+total::Closed Paid,IDENTICAL,
+total::Commission,EXPECTED,broken before; removed by trim
+total::Gross Reserve (old),EXPECTED,broken before; removed by trim
+total::Incurred,IDENTICAL,
+total::Legacy Severity,EXPECTED,broken before; removed by trim
+total::Max Paid,IDENTICAL,
+total::Min Reserve,IDENTICAL,
+total::Net Paid,IDENTICAL,
+total::Open Claims,IDENTICAL,
+total::Open Ratio,IDENTICAL,
+total::Paid Growth,EXPECTED,broken before; removed by trim
+total::Paid Last Year,EXPECTED,broken before; removed by trim
+total::Paid to Reserve,IDENTICAL,
+total::Policies With Claims,IDENTICAL,
+total::Reopen Paid,EXPECTED,broken before; removed by trim
+total::Reserve Movement,EXPECTED,broken before; removed by trim
+total::Total Paid,IDENTICAL,
+total::Total Recoveries,IDENTICAL,
+total::Total Reserve,IDENTICAL,

@@ -1,0 +1,445 @@
+{
+  "demo_elapsed_seconds": 74.5,
+  "company": "Contoso Insurance (fictional sample data)",
+  "before": {
+    "dev->uat": {
+      "view": {
+        "identical": 36,
+        "expected": 0,
+        "drift": 1,
+        "missing": 1,
+        "extra": 0,
+        "total": 38,
+        "aligned": 36
+      },
+      "config_table": {
+        "identical": 27,
+        "expected": 1,
+        "drift": 2,
+        "missing": 0,
+        "extra": 0,
+        "total": 30,
+        "aligned": 28
+      },
+      "job": {
+        "identical": 0,
+        "expected": 4,
+        "drift": 1,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 4
+      },
+      "bundle": {
+        "identical": 7,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 7
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 3,
+        "note": "reported only - never planned or touched"
+      }
+    },
+    "uat->prod": {
+      "view": {
+        "identical": 33,
+        "expected": 0,
+        "drift": 3,
+        "missing": 1,
+        "extra": 1,
+        "total": 38,
+        "aligned": 33
+      },
+      "config_table": {
+        "identical": 22,
+        "expected": 1,
+        "drift": 6,
+        "missing": 1,
+        "extra": 0,
+        "total": 30,
+        "aligned": 23
+      },
+      "job": {
+        "identical": 0,
+        "expected": 2,
+        "drift": 3,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 2
+      },
+      "bundle": {
+        "identical": 5,
+        "expected": 0,
+        "drift": 2,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 5
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 2,
+        "note": "reported only - never planned or touched"
+      }
+    },
+    "dev->prod": {
+      "view": {
+        "identical": 32,
+        "expected": 0,
+        "drift": 4,
+        "missing": 2,
+        "extra": 1,
+        "total": 39,
+        "aligned": 32
+      },
+      "config_table": {
+        "identical": 20,
+        "expected": 1,
+        "drift": 8,
+        "missing": 1,
+        "extra": 0,
+        "total": 30,
+        "aligned": 21
+      },
+      "job": {
+        "identical": 0,
+        "expected": 3,
+        "drift": 2,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 3
+      },
+      "bundle": {
+        "identical": 5,
+        "expected": 0,
+        "drift": 2,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 5
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 3,
+        "note": "reported only - never planned or touched"
+      }
+    }
+  },
+  "after": {
+    "dev->uat": {
+      "view": {
+        "identical": 38,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 38,
+        "aligned": 38
+      },
+      "config_table": {
+        "identical": 29,
+        "expected": 1,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 30,
+        "aligned": 30
+      },
+      "job": {
+        "identical": 0,
+        "expected": 5,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 5
+      },
+      "bundle": {
+        "identical": 7,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 7
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 3,
+        "note": "reported only - never planned or touched"
+      }
+    },
+    "uat->prod": {
+      "view": {
+        "identical": 38,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 1,
+        "total": 39,
+        "aligned": 38
+      },
+      "config_table": {
+        "identical": 29,
+        "expected": 1,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 30,
+        "aligned": 30
+      },
+      "job": {
+        "identical": 0,
+        "expected": 5,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 5
+      },
+      "bundle": {
+        "identical": 7,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 7
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 2,
+        "note": "reported only - never planned or touched"
+      }
+    },
+    "dev->prod": {
+      "view": {
+        "identical": 38,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 1,
+        "total": 39,
+        "aligned": 38
+      },
+      "config_table": {
+        "identical": 29,
+        "expected": 1,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 30,
+        "aligned": 30
+      },
+      "job": {
+        "identical": 0,
+        "expected": 5,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 5,
+        "aligned": 5
+      },
+      "bundle": {
+        "identical": 7,
+        "expected": 0,
+        "drift": 0,
+        "missing": 0,
+        "extra": 0,
+        "total": 7,
+        "aligned": 7
+      },
+      "protected": {
+        "objects": 3,
+        "differences": 3,
+        "note": "reported only - never planned or touched"
+      }
+    }
+  },
+  "promotions": {
+    "dev->uat (risks not accepted)": [
+      {
+        "plan": "plan-dev-to-uat-1afd3ac9-a.json",
+        "items": 4,
+        "lint": [],
+        "dry_run": "dry-run",
+        "status": "applied",
+        "accepted": [],
+        "tests_before": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": false,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "tests_after": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": true,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "refusal": null
+      },
+      {
+        "plan": "plan-dev-to-uat-1afd3ac9-b.json",
+        "items": 1,
+        "lint": [
+          "R1"
+        ],
+        "dry_run": "refused",
+        "status": "refused",
+        "accepted": [],
+        "tests_before": null,
+        "tests_after": null,
+        "refusal": "HIGH risk not accepted: ['R1:004'] (after review, pass --accept-risk RULE:ITEM for each one)"
+      }
+    ],
+    "dev->uat (risks accepted per item after review)": [
+      {
+        "plan": "plan-dev-to-uat-1358d021-b.json",
+        "items": 1,
+        "lint": [
+          "R1"
+        ],
+        "dry_run": "refused",
+        "status": "applied",
+        "accepted": [
+          "R1:001"
+        ],
+        "tests_before": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": false,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "tests_after": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": true,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "refusal": null
+      }
+    ],
+    "uat->prod": [
+      {
+        "plan": "plan-uat-to-prod-fa9f287b-a.json",
+        "items": 15,
+        "lint": [
+          "R5",
+          "R4",
+          "R5",
+          "R5",
+          "R5",
+          "R4",
+          "R5",
+          "R5",
+          "R5",
+          "R5",
+          "R5"
+        ],
+        "dry_run": "refused",
+        "status": "applied",
+        "accepted": [
+          "R5:001",
+          "R5:002",
+          "R5:004",
+          "R5:005",
+          "R5:006",
+          "R5:007",
+          "R5:008",
+          "R5:009",
+          "R5:015"
+        ],
+        "tests_before": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": false,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "tests_after": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": true,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "refusal": null
+      },
+      {
+        "plan": "plan-uat-to-prod-fa9f287b-b.json",
+        "items": 3,
+        "lint": [
+          "R1",
+          "R5",
+          "R1",
+          "R5",
+          "R1",
+          "R5"
+        ],
+        "dry_run": "refused",
+        "status": "applied",
+        "accepted": [
+          "R1:011",
+          "R5:011",
+          "R1:013",
+          "R5:013",
+          "R1:014",
+          "R5:014"
+        ],
+        "tests_before": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": false,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "tests_after": {
+          "T1_core_views_queryable": true,
+          "T2_changed_objects_match_source": true,
+          "T3_protected_team_untouched": true,
+          "T4_data_tables_unchanged": true,
+          "T5_job_dependencies_exist": true
+        },
+        "refusal": null
+      }
+    ]
+  },
+  "protected_team": {
+    "dev": {
+      "before": "94b7cefb9cdf1cd0",
+      "after": "94b7cefb9cdf1cd0",
+      "differences": 0
+    },
+    "uat": {
+      "before": "ddcfb0322a9fe17d",
+      "after": "ddcfb0322a9fe17d",
+      "differences": 0
+    },
+    "prod": {
+      "before": "fa349d1046d70e5c",
+      "after": "fa349d1046d70e5c",
+      "differences": 0
+    }
+  },
+  "rollback_drill": {
+    "status": "rolled_back",
+    "failures": [
+      "T1_core_views_queryable"
+    ],
+    "restore_verified": true,
+    "views_before": 39,
+    "views_after_rollback": 39
+  }
+}

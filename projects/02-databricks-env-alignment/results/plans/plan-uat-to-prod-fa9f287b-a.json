@@ -1,0 +1,770 @@
+{
+  "plan_id": "uat-to-prod-fa9f287b-a",
+  "source": "uat",
+  "target": "prod",
+  "created_utc": "2026-10-23T20:20:49Z",
+  "items": [
+    {
+      "kind": "config_table",
+      "object": "core.cfg_channel",
+      "action": "rebuild_table",
+      "reason": [
+        "schema differs: ['key', 'value', 'active'] vs ['key', 'value', 'active', 'tier']",
+        "keys with different values: ['channel_00', 'channel_01', 'channel_02', 'channel_03', 'channel_04']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_channel__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_channel__fa9f287b AS SELECT * FROM core.cfg_channel"
+      },
+      "change": [
+        "DROP TABLE core.cfg_channel",
+        "CREATE TABLE core.cfg_channel(key VARCHAR, value VARCHAR, active BOOLEAN)",
+        "INSERT INTO core.cfg_channel VALUES ('channel_00', 'val_991', TRUE)",
+        "INSERT INTO core.cfg_channel VALUES ('channel_01', 'val_961', TRUE)",
+        "INSERT INTO core.cfg_channel VALUES ('channel_02', 'val_723', TRUE)",
+        "INSERT INTO core.cfg_channel VALUES ('channel_03', 'val_482', TRUE)",
+        "INSERT INTO core.cfg_channel VALUES ('channel_04', 'val_652', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_channel",
+        "CREATE TABLE core.cfg_channel AS SELECT * FROM _backup.cfg_channel__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "001",
+      "target_fingerprint": "e989e2d6bdab696aa56531b6daaf74ae9c32a68fb677c9199f903a286cd917ec",
+      "expected_fingerprint": "051340d78ad5740cf860199c96a8a409e71972d55b537b5043b46d72ef5e2818",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_commission",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['commission_00']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_commission__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_commission__fa9f287b AS SELECT * FROM core.cfg_commission"
+      },
+      "change": [
+        "DELETE FROM core.cfg_commission WHERE key = 'commission_00'",
+        "INSERT INTO core.cfg_commission VALUES ('commission_00', 'val_652', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_commission",
+        "CREATE TABLE core.cfg_commission AS SELECT * FROM _backup.cfg_commission__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "002",
+      "target_fingerprint": "da5201cdf0fbeb06f8d21b83e7699e068d803b734fc439df2e45edd02bf1c146",
+      "expected_fingerprint": "7491cad5eed9774d855ace6129e02b9677e9e58628a8ca84f153bff958dd0db5",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_feature_flags",
+      "action": "create_table",
+      "reason": [
+        "only in uat"
+      ],
+      "backup": {
+        "type": "none_needed",
+        "note": "table does not exist in target; full catalog copy still taken"
+      },
+      "change": [
+        "CREATE TABLE core.cfg_feature_flags(key VARCHAR, value VARCHAR, active BOOLEAN)",
+        "INSERT INTO core.cfg_feature_flags VALUES ('feature_flags_00', 'val_780', TRUE)",
+        "INSERT INTO core.cfg_feature_flags VALUES ('feature_flags_01', 'val_738', TRUE)",
+        "INSERT INTO core.cfg_feature_flags VALUES ('feature_flags_02', 'val_968', TRUE)",
+        "INSERT INTO core.cfg_feature_flags VALUES ('feature_flags_03', 'val_407', TRUE)",
+        "INSERT INTO core.cfg_feature_flags VALUES ('feature_flags_04', 'val_782', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_feature_flags"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "003",
+      "target_fingerprint": null,
+      "expected_fingerprint": "250cb09e6d6eafd5cfa1531df0d79d32fc086109b98789f93bdaa089d42497d8"
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_fx_source",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['ZAR']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_fx_source__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_fx_source__fa9f287b AS SELECT * FROM core.cfg_fx_source"
+      },
+      "change": [
+        "DELETE FROM core.cfg_fx_source WHERE key = 'ZAR'",
+        "INSERT INTO core.cfg_fx_source VALUES ('ZAR', 'central_bank_feed', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_fx_source",
+        "CREATE TABLE core.cfg_fx_source AS SELECT * FROM _backup.cfg_fx_source__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "004",
+      "target_fingerprint": "0a8aa63ee62b5af2c2a7873428ac486c8ad0973addd70bdb71f8906d7c481e9b",
+      "expected_fingerprint": "cb11b5d8fcf7de33e88b77431fa5623712107d0d9e6408c13301a8a8bd89cb22",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_kpi_threshold",
+      "action": "upsert_rows",
+      "reason": [
+        "keys extra in right: ['kpi_99']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_kpi_threshold__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_kpi_threshold__fa9f287b AS SELECT * FROM core.cfg_kpi_threshold"
+      },
+      "change": [
+        "DELETE FROM core.cfg_kpi_threshold WHERE key = 'kpi_99'"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_kpi_threshold",
+        "CREATE TABLE core.cfg_kpi_threshold AS SELECT * FROM _backup.cfg_kpi_threshold__fa9f287b"
+      ],
+      "removes_keys": [
+        "kpi_99"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "005",
+      "target_fingerprint": "2a20ae84cde0e9e814da384fcdbb627dcac73d9baba8f7817fa03b822deddc66",
+      "expected_fingerprint": "cfa77c8f404502f44fa7229996bad341756093337a6b40ba3265cd2e212fb9ca",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_report_map",
+      "action": "upsert_rows",
+      "reason": [
+        "keys missing in right: ['report_map_02', 'report_map_03']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_report_map__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_report_map__fa9f287b AS SELECT * FROM core.cfg_report_map"
+      },
+      "change": [
+        "INSERT INTO core.cfg_report_map VALUES ('report_map_02', 'val_127', TRUE)",
+        "INSERT INTO core.cfg_report_map VALUES ('report_map_03', 'val_833', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_report_map",
+        "CREATE TABLE core.cfg_report_map AS SELECT * FROM _backup.cfg_report_map__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "006",
+      "target_fingerprint": "cd8abac2a54b9d34fa05ec4121ce4ed13461183ce92449c8fcc257cfba862db9",
+      "expected_fingerprint": "61eb844f457b36f0a083845047bd436dd0179529c4ff305da4c160a7d3ee1601",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_reserve_factor",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['reserve_factor_00']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_reserve_factor__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_reserve_factor__fa9f287b AS SELECT * FROM core.cfg_reserve_factor"
+      },
+      "change": [
+        "DELETE FROM core.cfg_reserve_factor WHERE key = 'reserve_factor_00'",
+        "INSERT INTO core.cfg_reserve_factor VALUES ('reserve_factor_00', 'val_296', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_reserve_factor",
+        "CREATE TABLE core.cfg_reserve_factor AS SELECT * FROM _backup.cfg_reserve_factor__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "007",
+      "target_fingerprint": "1a3486cdc2c0866b0f329b381bd45c68f307ee8ee64f2744bf92640b11cb683a",
+      "expected_fingerprint": "2f2c564a69d2b093151b130d36a95062f4d70495afc4789f98dc9bb03f1024da",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_segment",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['segment_00']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_segment__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_segment__fa9f287b AS SELECT * FROM core.cfg_segment"
+      },
+      "change": [
+        "DELETE FROM core.cfg_segment WHERE key = 'segment_00'",
+        "INSERT INTO core.cfg_segment VALUES ('segment_00', 'val_641', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_segment",
+        "CREATE TABLE core.cfg_segment AS SELECT * FROM _backup.cfg_segment__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "008",
+      "target_fingerprint": "0d900f13cb6e331656ff3e019178c1b3267a39b64c7c859d6a22eb7d38c35e2c",
+      "expected_fingerprint": "d587f202881ce2a60405ad587d6ad94e9cd8209b55abc3448c7ab2ce08fb0011",
+      "target_only_change": true
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_tax_rate",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['tax_rate_00']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_tax_rate__fa9f287b",
+        "sql": "CREATE TABLE _backup.cfg_tax_rate__fa9f287b AS SELECT * FROM core.cfg_tax_rate"
+      },
+      "change": [
+        "DELETE FROM core.cfg_tax_rate WHERE key = 'tax_rate_00'",
+        "INSERT INTO core.cfg_tax_rate VALUES ('tax_rate_00', 'val_334', FALSE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_tax_rate",
+        "CREATE TABLE core.cfg_tax_rate AS SELECT * FROM _backup.cfg_tax_rate__fa9f287b"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "009",
+      "target_fingerprint": "d5892b17d07e852da70c46b2da49b2c2d8750780dbc1893470a1d88cc9691733",
+      "expected_fingerprint": "be865dd52353454483c156f5c096da0f971e2ddfaffc5072beafa80479f2f164",
+      "target_only_change": true
+    },
+    {
+      "kind": "view",
+      "object": "core.v_broker_new",
+      "action": "create_view",
+      "reason": [
+        "only in uat"
+      ],
+      "backup": {
+        "type": "ddl_capture",
+        "object": "core.v_broker_new",
+        "previous_sql": null,
+        "note": "previous definition stored in the plan and in the full catalog copy"
+      },
+      "change": [
+        "CREATE VIEW IF NOT EXISTS core.v_broker_new AS SELECT * FROM core.broker WHERE (broker_id > 35)"
+      ],
+      "rollback": [
+        "DROP VIEW IF EXISTS core.v_broker_new"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "view is queryable",
+        "normalised DDL == source DDL",
+        "all core views queryable"
+      ],
+      "id": "010",
+      "target_fingerprint": null,
+      "expected_fingerprint": "f6489374bf7a848ad0bc837f1c3d5d9ac45aaf664bd9b08b53d71fb80a657397"
+    },
+    {
+      "kind": "view",
+      "object": "core.v_claims_last_quarter",
+      "action": "create_view",
+      "reason": [
+        "only in uat"
+      ],
+      "backup": {
+        "type": "ddl_capture",
+        "object": "core.v_claims_last_quarter",
+        "previous_sql": null,
+        "note": "previous definition stored in the plan and in the full catalog copy"
+      },
+      "change": [
+        "CREATE VIEW IF NOT EXISTS core.v_claims_last_quarter AS SELECT * FROM core.claim WHERE (reported_date >= CAST('2026-04-01' AS DATE))"
+      ],
+      "rollback": [
+        "DROP VIEW IF EXISTS core.v_claims_last_quarter"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "view is queryable",
+        "normalised DDL == source DDL",
+        "all core views queryable"
+      ],
+      "id": "012",
+      "target_fingerprint": null,
+      "expected_fingerprint": "dc06d02352c7a79406bbb9b57b0ceb60d8a2569bdb5de42ceaea7b45cc6e7de2"
+    },
+    {
+      "kind": "view",
+      "object": "core.v_renewals_due",
+      "action": "replace_view",
+      "reason": [
+        "left:  select*from core.policy where((status='active')and(start_date<cast('2025-07-01' as date)))",
+        "right: select*from core.policy where((status='active')and(start_date<cast('2025-06-01' as date)))"
+      ],
+      "backup": {
+        "type": "ddl_capture",
+        "object": "core.v_renewals_due",
+        "previous_sql": "CREATE VIEW core.v_renewals_due AS SELECT * FROM core.\"policy\" WHERE ((status = 'active') AND (start_date < CAST('2025-06-01' AS DATE)));",
+        "note": "previous definition stored in the plan and in the full catalog copy"
+      },
+      "change": [
+        "CREATE OR REPLACE VIEW core.v_renewals_due AS SELECT * FROM core.\"policy\" WHERE ((status = 'active') AND (start_date < CAST('2025-07-01' AS DATE)))"
+      ],
+      "rollback": [
+        "CREATE OR REPLACE VIEW core.v_renewals_due AS SELECT * FROM core.\"policy\" WHERE ((status = 'active') AND (start_date < CAST('2025-06-01' AS DATE)))"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "view is queryable"
+      ],
+      "post_tests": [
+        "view is queryable",
+        "normalised DDL == source DDL",
+        "all core views queryable"
+      ],
+      "id": "015",
+      "target_fingerprint": "c88dc7ab74ca4c05d3a917f60e5824b61921b074af361a648b5a35221490fdf2",
+      "expected_fingerprint": "2b6d5dced1c0df4216c1f9e8392d92f9c386d50e2fa7eeee96e04fb2a5fca7c5",
+      "target_only_change": true
+    },
+    {
+      "kind": "job",
+      "object": "claims_daily",
+      "action": "deploy_job",
+      "reason": [
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "backup": {
+        "type": "file_copy",
+        "path": "jobs/claims_daily.json",
+        "previous": {
+          "job_id": 471470997,
+          "created_time": 1760000000000,
+          "name": "claims_daily",
+          "tags": {
+            "owner": "reporting",
+            "uses_objects": "core.v_claims_open,core.v_large_claims"
+          },
+          "schedule": {
+            "quartz_cron_expression": "0 0 2 * * ?",
+            "timezone_id": "UTC",
+            "pause_status": "UNPAUSED"
+          },
+          "job_clusters": [
+            {
+              "job_cluster_key": "main",
+              "new_cluster": {
+                "spark_version": "15.4.x-scala2.12",
+                "node_type_id": "Standard_D4ds_v5",
+                "num_workers": 4
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "task_key": "load_claims",
+              "job_cluster_key": "main",
+              "notebook_task": {
+                "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/load_claims"
+              }
+            },
+            {
+              "task_key": "validate_claims",
+              "job_cluster_key": "main",
+              "notebook_task": {
+                "notebook_path": "/Workspace/Users/someone/scratch/validate_claims_v2"
+              }
+            }
+          ],
+          "email_notifications": {
+            "on_failure": [
+              "reporting-oncall-prod@contoso-insurance.example"
+            ]
+          }
+        }
+      },
+      "change": [
+        "write jobs/claims_daily.json (source definition, env tokens -> prod, env fields kept)"
+      ],
+      "payload": {
+        "job_id": 471470997,
+        "created_time": 1760000000000,
+        "name": "claims_daily",
+        "tags": {
+          "owner": "reporting",
+          "uses_objects": "core.v_claims_open,core.v_large_claims"
+        },
+        "schedule": {
+          "quartz_cron_expression": "0 0 2 * * ?",
+          "timezone_id": "UTC",
+          "pause_status": "UNPAUSED"
+        },
+        "job_clusters": [
+          {
+            "job_cluster_key": "main",
+            "new_cluster": {
+              "spark_version": "15.4.x-scala2.12",
+              "node_type_id": "Standard_D4ds_v5",
+              "num_workers": 4
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "task_key": "load_claims",
+            "job_cluster_key": "main",
+            "notebook_task": {
+              "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/load_claims"
+            }
+          },
+          {
+            "task_key": "validate_claims",
+            "job_cluster_key": "main",
+            "notebook_task": {
+              "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/validate_claims"
+            }
+          }
+        ],
+        "email_notifications": {
+          "on_failure": [
+            "reporting-oncall-prod@contoso-insurance.example"
+          ]
+        }
+      },
+      "rollback": [
+        "restore jobs/claims_daily.json from backup"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "job JSON == source after env masking",
+        "every uses_objects entry exists in target"
+      ],
+      "id": "016",
+      "target_fingerprint": "a33e39b61e2d47ab28e0c7a5a53bc82556175adf41054e8ad0b9925ec6a8c2a9",
+      "expected_fingerprint": "a3b5a74ae9eb9311693c8e0aaf824c39f2a452900661707274a8a289be68c33d"
+    },
+    {
+      "kind": "job",
+      "object": "month_end_close",
+      "action": "deploy_job",
+      "reason": [
+        "tasks"
+      ],
+      "backup": {
+        "type": "file_copy",
+        "path": "jobs/month_end_close.json",
+        "previous": {
+          "job_id": 288479189,
+          "created_time": 1760000000000,
+          "name": "month_end_close",
+          "tags": {
+            "owner": "reporting",
+            "uses_objects": "core.v_claim_ratio_by_product,core.cfg_report_period"
+          },
+          "schedule": {
+            "quartz_cron_expression": "0 0 6 1 * ?",
+            "timezone_id": "UTC",
+            "pause_status": "UNPAUSED"
+          },
+          "job_clusters": [
+            {
+              "job_cluster_key": "main",
+              "new_cluster": {
+                "spark_version": "15.4.x-scala2.12",
+                "node_type_id": "Standard_D4ds_v5",
+                "num_workers": 4
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "task_key": "close_period",
+              "job_cluster_key": "main",
+              "notebook_task": {
+                "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/close_period"
+              }
+            }
+          ],
+          "email_notifications": {
+            "on_failure": [
+              "reporting-oncall-prod@contoso-insurance.example"
+            ]
+          }
+        }
+      },
+      "change": [
+        "write jobs/month_end_close.json (source definition, env tokens -> prod, env fields kept)"
+      ],
+      "payload": {
+        "job_id": 288479189,
+        "created_time": 1760000000000,
+        "name": "month_end_close",
+        "tags": {
+          "owner": "reporting",
+          "uses_objects": "core.v_claim_ratio_by_product,core.cfg_report_period"
+        },
+        "schedule": {
+          "quartz_cron_expression": "0 0 6 1 * ?",
+          "timezone_id": "UTC",
+          "pause_status": "UNPAUSED"
+        },
+        "job_clusters": [
+          {
+            "job_cluster_key": "main",
+            "new_cluster": {
+              "spark_version": "15.4.x-scala2.12",
+              "node_type_id": "Standard_D4ds_v5",
+              "num_workers": 4
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "task_key": "close_period",
+            "job_cluster_key": "main",
+            "notebook_task": {
+              "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/close_period"
+            }
+          },
+          {
+            "task_key": "publish_pack",
+            "job_cluster_key": "main",
+            "notebook_task": {
+              "notebook_path": "/Workspace/bundles/contoso_reporting/prod/src/publish_pack"
+            }
+          }
+        ],
+        "email_notifications": {
+          "on_failure": [
+            "reporting-oncall-prod@contoso-insurance.example"
+          ]
+        }
+      },
+      "rollback": [
+        "restore jobs/month_end_close.json from backup"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "job JSON == source after env masking",
+        "every uses_objects entry exists in target"
+      ],
+      "id": "017",
+      "target_fingerprint": "3bcc153d736a494c72afe1380f15d82f8ff957bbb81acd0dd1f969aaa8041dfc",
+      "expected_fingerprint": "5a26456c1e895e8f4822052d7396fcf72668882437e7ae6378e325798407a8f0"
+    },
+    {
+      "kind": "bundle",
+      "object": "databricks.yml",
+      "action": "deploy_bundle",
+      "reason": [
+        "targets.prod: drift ['run_as']",
+        "variables: drift ['warehouse_size.default']"
+      ],
+      "backup": {
+        "type": "file_copy",
+        "path": "databricks.yml"
+      },
+      "change": [
+        "write databricks.yml = source bundle (one bundle, all targets)"
+      ],
+      "payload_text": "bundle:\n  name: contoso_reporting\nvariables:\n  catalog:\n    default: contoso_dev\n  warehouse_size:\n    default: small\ninclude:\n- resources/*.yml\nresources:\n  jobs:\n    reporting_views_refresh:\n      name: reporting_views_refresh\n      file: jobs/reporting_views_refresh.json\n    claims_daily:\n      name: claims_daily\n      file: jobs/claims_daily.json\n    policy_daily:\n      name: policy_daily\n      file: jobs/policy_daily.json\n    fx_load:\n      name: fx_load\n      file: jobs/fx_load.json\n    month_end_close:\n      name: month_end_close\n      file: jobs/month_end_close.json\ntargets:\n  dev:\n    mode: development\n    default: true\n    workspace:\n      host: https://dev.contoso-insurance.example\n    variables:\n      catalog: contoso_dev\n  uat:\n    mode: production\n    workspace:\n      host: https://uat.contoso-insurance.example\n    variables:\n      catalog: contoso_uat\n    run_as:\n      service_principal_name: sp-contoso-reporting-uat\n  prod:\n    mode: production\n    workspace:\n      host: https://prod.contoso-insurance.example\n    variables:\n      catalog: contoso_prod\n    run_as:\n      service_principal_name: sp-contoso-reporting-prod\n",
+      "rollback": [
+        "restore databricks.yml from backup"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "bundle sections == source"
+      ],
+      "id": "018",
+      "target_fingerprint": "bf3237525b696083cd31ffe4b89f572e44f875170c4d8f8ed94d62798501e87f",
+      "expected_fingerprint": "7a9d532e051ca74ff5e0aa4eacc280d872afb56a7d3ebfb5a2df2964db838a35"
+    }
+  ],
+  "notes": [
+    "view core.v_tmp_debug_claims: only in prod - report only, not dropped (needs owner sign-off)",
+    "protected config_table team_b.cfg_team_b_settings: drift - excluded by design",
+    "protected job team_b_ingest: expected - excluded by design"
+  ],
+  "approval_token": "APPROVE-6cfa9817fc85b2a1",
+  "lint": [
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "001",
+      "message": "core.cfg_channel: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R4",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "item": "001",
+      "message": "core.cfg_channel: drops and rebuilds the table - confirm intent"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "002",
+      "message": "core.cfg_commission: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "004",
+      "message": "core.cfg_fx_source: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "005",
+      "message": "core.cfg_kpi_threshold: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R4",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "item": "005",
+      "message": "core.cfg_kpi_threshold: removes config key(s) ['kpi_99'] - confirm intent"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "006",
+      "message": "core.cfg_report_map: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "007",
+      "message": "core.cfg_reserve_factor: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "008",
+      "message": "core.cfg_segment: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "009",
+      "message": "core.cfg_tax_rate: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "015",
+      "message": "core.v_renewals_due: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "measure": "Avg Net per Claim",
+    "definition_sha256": "b090638f5f3e63eb429c41f9f7c8aa317039ad50106f98035cd307155634c1f5",
+    "reviewer": "PENDING - awaiting an independent human reviewer",
+    "reviewer_role": "human",
+    "date": "2026-10-23",
+    "reason": "AVERAGEX is outside the regression translator's DAX subset. To sign: read the TMDL, confirm this definition (hash above) is unchanged by the trim and that PaidAmount and RecoveryAmount are kept, then put your own name in 'reviewer' and set 'date'. A tool or agent may not sign."
+  }
+]

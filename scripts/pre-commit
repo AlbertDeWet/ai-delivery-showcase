@@ -1,0 +1,11 @@
+#!/bin/sh
+# Pre-commit hook: block commits that contain denylisted terms, emails or attribution lines.
+# Installed by: python scripts/install_hooks.py
+ROOT="$(git rev-parse --show-toplevel)"
+for PY in "$ROOT/.venv/Scripts/python.exe" "$ROOT/.venv/bin/python" python3 python; do
+  if command -v "$PY" >/dev/null 2>&1 || [ -x "$PY" ]; then
+    exec "$PY" "$ROOT/scripts/leakcheck.py" --staged
+  fi
+done
+echo "pre-commit: no Python found; refusing to commit (fail closed)." >&2
+exit 2

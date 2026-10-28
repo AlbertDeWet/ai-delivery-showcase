@@ -1,0 +1,180 @@
+{
+  "provider": "claude-cli",
+  "suite": "questions",
+  "model": "claude-haiku-5-5",
+  "tier": "haiku",
+  "repeats": 3,
+  "n_cases": 1,
+  "case_ids": [
+    "j03"
+  ],
+  "label": "j03-fix",
+  "retry_rule": "infra-only: retry once (max 1) when a call errors with 0 tokens consumed (CLI timeout, process or transport failure); never on a wrong, refused or unparseable answer; same rule for every provider and tier",
+  "timestamp": "2026-10-23T18:29:52+00:00",
+  "grader_version": "v2-round2",
+  "regraded_from": {
+    "file": "claude-cli-haiku-j03-fix.json",
+    "recorded_timestamp": "2026-10-23T18:29:52+00:00",
+    "recorded_grader_version": "v1 (pre-round-1, not recorded in file)",
+    "cases_file": "evals/questions.yaml",
+    "method": "offline: stored SQL re-executed through the current guard and executor, graded by the current grader; no model calls; non-SQL records unchanged",
+    "changed_records": [],
+    "recorded_summary": {
+      "n_records": 3,
+      "overall_accuracy_pct": 100.0,
+      "execution_accuracy_pct": 100.0,
+      "refusal_correctness_pct": null,
+      "false_refusal_pct": 0.0,
+      "destructive_blocked_pct": null,
+      "pass^3_pct": 100.0,
+      "by_category": {
+        "join": {
+          "correct": 3,
+          "n": 3,
+          "accuracy_pct": 100.0
+        }
+      },
+      "latency_p50_s": 28.971,
+      "latency_p95_s": 31.875,
+      "tokens_in": 11009,
+      "tokens_out": 1805,
+      "tokens_per_question": 4271.3,
+      "api_equivalent_cost_usd": 0.0342,
+      "errors": 0,
+      "infra_retries": 0,
+      "checker": {
+        "answered": 3,
+        "wrong_answers": 0,
+        "wrong_caught": 0,
+        "wrong_abstained": 0,
+        "caught_rate_pct": null,
+        "correct_answers": 3,
+        "false_alarms": 0,
+        "agree_on_correct": 3
+      }
+    }
+  },
+  "summary": {
+    "n_records": 3,
+    "overall_accuracy_pct": 100.0,
+    "execution_accuracy_pct": 100.0,
+    "refusal_correctness_pct": null,
+    "false_refusal_pct": 0.0,
+    "destructive_blocked_pct": null,
+    "pass^3_pct": 100.0,
+    "by_category": {
+      "join": {
+        "correct": 3,
+        "n": 3,
+        "accuracy_pct": 100.0
+      }
+    },
+    "latency_p50_s": 28.971,
+    "latency_p95_s": 31.875,
+    "tokens_in": 11009,
+    "tokens_out": 1805,
+    "tokens_per_question": 4271.3,
+    "api_equivalent_cost_usd": 0.0342,
+    "errors": 0,
+    "infra_retries": 0,
+    "checker": {
+      "answered": 3,
+      "wrong_answers": 0,
+      "wrong_caught": 0,
+      "wrong_abstained": 0,
+      "caught_rate_pct": null,
+      "correct_answers": 3,
+      "false_alarms": 0,
+      "agree_on_correct": 3
+    }
+  },
+  "records": [
+    {
+      "id": "j03",
+      "category": "join",
+      "repeat": 0,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many claims are there per customer region? Show customers with no region recorded as their own group labelled 'Unknown'.",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COALESCE(c.region, 'Unknown') AS region, COUNT(cl.claim_id) AS claim_count FROM claims cl JOIN policies p ON cl.policy_id = p.policy_id JOIN customers c ON p.customer_id = c.customer_id GROUP BY COALESCE(c.region, 'Unknown') ORDER BY claim_count DESC",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 28.9709,
+      "input_tokens": 1831,
+      "output_tokens": 149,
+      "cost_usd": 0.0096755,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 323.0,
+        "control": 323.0,
+        "note": "",
+        "input_tokens": 1840,
+        "output_tokens": 253
+      }
+    },
+    {
+      "id": "j03",
+      "category": "join",
+      "repeat": 1,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many claims are there per customer region? Show customers with no region recorded as their own group labelled 'Unknown'.",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COALESCE(c.region, 'Unknown') AS region, COUNT(*) AS claim_count FROM claims cl LEFT JOIN policies p ON p.policy_id = cl.policy_id LEFT JOIN customers c ON c.customer_id = p.customer_id GROUP BY 1 ORDER BY claim_count DESC",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 31.8749,
+      "input_tokens": 1830,
+      "output_tokens": 416,
+      "cost_usd": 0.014317,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 323.0,
+        "control": 323.0,
+        "note": "",
+        "input_tokens": 1839,
+        "output_tokens": 391
+      }
+    },
+    {
+      "id": "j03",
+      "category": "join",
+      "repeat": 2,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many claims are there per customer region? Show customers with no region recorded as their own group labelled 'Unknown'.",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COALESCE(c.region, 'Unknown') AS customer_region, COUNT(*) AS claim_count FROM claims cl JOIN policies p ON cl.policy_id = p.policy_id JOIN customers c ON p.customer_id = c.customer_id GROUP BY COALESCE(c.region, 'Unknown') ORDER BY claim_count DESC",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 28.0594,
+      "input_tokens": 1829,
+      "output_tokens": 290,
+      "cost_usd": 0.010178,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 323.0,
+        "control": 323.0,
+        "note": "",
+        "input_tokens": 1840,
+        "output_tokens": 306
+      }
+    }
+  ]
+}

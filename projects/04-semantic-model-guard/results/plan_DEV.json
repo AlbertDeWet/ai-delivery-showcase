@@ -1,0 +1,452 @@
+{
+  "model": "DEV",
+  "remove_measures": [
+    {
+      "measure": "Broker Paid",
+      "reason": "missing FactClaims[BrokerPaidAmt]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Commission",
+      "reason": "missing table DimBroker (in DimBroker[Commission])",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Commission Ratio",
+      "reason": "depends on broken [Commission]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Gross Reserve (old)",
+      "reason": "missing FactClaims[GrossReserveOld]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Legacy Severity",
+      "reason": "depends on broken [Gross Reserve (old)]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Old Loss Ratio",
+      "reason": "missing [Earned Premium]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Paid Growth",
+      "reason": "depends on broken [Paid Last Year]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Paid Last Year",
+      "reason": "missing [Total Paid PY]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Reopen Paid",
+      "reason": "missing FactClaims[PaidAmt]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    },
+    {
+      "measure": "Reserve Movement",
+      "reason": "depends on broken [Gross Reserve (old)]",
+      "proof": {
+        "visual_refs": 0,
+        "perspective_refs": 0
+      }
+    }
+  ],
+  "blocked_measures": [],
+  "remove_columns": [
+    {
+      "table": "DimPolicy",
+      "column": "PolicyHolderToken",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "AdjusterNote",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "Attr01",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "Attr02",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "Attr03",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "AuditTs",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "AuditUser",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "BrokerCode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "CauseCode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ChannelCode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ClaimKey",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ClaimNarrative",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ClaimantPostcode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ExcessAmount",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ExternalClaimRef",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "FeeAmount",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "IngestTimestamp",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "IsDeleted",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "LegacyClaimNo",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "LoadBatchId",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "RegionCode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "RowVersion",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "SourceFileName",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "SourceRowHash",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "SubCauseCode",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "VatAmount",
+      "proof": {
+        "measures_refs": 0,
+        "calculated_columns_refs": 0,
+        "relationships_refs": 0,
+        "roles_refs": 0,
+        "hierarchies_refs": 0,
+        "sort_by_refs": 0,
+        "visuals_refs": 0,
+        "model_objects_refs": 0
+      }
+    }
+  ]
+}

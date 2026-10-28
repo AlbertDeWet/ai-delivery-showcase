@@ -1,0 +1,67 @@
+{
+  "before": {
+    "tables": [],
+    "columns": [
+      {
+        "object": "FactClaims[TempFixFlag]",
+        "present_in": [
+          "UAT"
+        ]
+      }
+    ],
+    "column_properties": [],
+    "measures": [
+      {
+        "object": "[Commission Ratio]",
+        "present_in": [
+          "DEV",
+          "PROD"
+        ]
+      },
+      {
+        "object": "[Old Loss Ratio]",
+        "present_in": [
+          "DEV",
+          "PROD"
+        ]
+      },
+      {
+        "object": "[Reopen Paid]",
+        "present_in": [
+          "DEV",
+          "UAT"
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "object": "[Avg Paid per Claim]",
+        "expressions": {
+          "DEV": "FactClaims: DIVIDE([Total Paid], [Claim Count])",
+          "UAT": "FactClaims: DIVIDE([Total Paid], [Claim Count])",
+          "PROD": "FactClaims: DIVIDE(SUM(FactClaims[PaidAmount]), COUNTROWS(FactClaims))"
+        }
+      }
+    ],
+    "relationships": [],
+    "drift_count": 5
+  },
+  "after": {
+    "tables": [],
+    "columns": [],
+    "column_properties": [],
+    "measures": [],
+    "expressions": [
+      {
+        "object": "[Avg Paid per Claim]",
+        "expressions": {
+          "DEV": "FactClaims: DIVIDE([Total Paid], [Claim Count])",
+          "UAT": "FactClaims: DIVIDE([Total Paid], [Claim Count])",
+          "PROD": "FactClaims: DIVIDE(SUM(FactClaims[PaidAmount]), COUNTROWS(FactClaims))"
+        }
+      }
+    ],
+    "relationships": [],
+    "drift_count": 1
+  }
+}

@@ -1,0 +1,105 @@
+check,class,reason
+by_lob::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_lob::Avg Paid per Claim,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Avg Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Broker Paid,EXPECTED,broken before; removed by trim
+by_lob::Claim Count,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Closed Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Commission,EXPECTED,broken before; removed by trim
+by_lob::Commission Ratio,EXPECTED,broken before; removed by trim
+by_lob::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_lob::Incurred,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Legacy Severity,EXPECTED,broken before; removed by trim
+by_lob::Max Paid,IDENTICAL,
+by_lob::Min Reserve,IDENTICAL,
+by_lob::Net Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Old Loss Ratio,EXPECTED,broken before; removed by trim
+by_lob::Open Claims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Open Ratio,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Paid Growth,EXPECTED,broken before; removed by trim
+by_lob::Paid Last Year,EXPECTED,broken before; removed by trim
+by_lob::Paid to Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Policies With Claims,IDENTICAL,
+by_lob::Reserve Movement,EXPECTED,broken before; removed by trim
+by_lob::Total Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Total Recoveries,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_lob::Total Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_product::Avg Paid per Claim,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Avg Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Broker Paid,EXPECTED,broken before; removed by trim
+by_product::Claim Count,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Closed Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Commission,EXPECTED,broken before; removed by trim
+by_product::Commission Ratio,EXPECTED,broken before; removed by trim
+by_product::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_product::Incurred,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Legacy Severity,EXPECTED,broken before; removed by trim
+by_product::Max Paid,IDENTICAL,
+by_product::Min Reserve,IDENTICAL,
+by_product::Net Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Old Loss Ratio,EXPECTED,broken before; removed by trim
+by_product::Open Claims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Open Ratio,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Paid Growth,EXPECTED,broken before; removed by trim
+by_product::Paid Last Year,EXPECTED,broken before; removed by trim
+by_product::Paid to Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Policies With Claims,IDENTICAL,
+by_product::Reserve Movement,EXPECTED,broken before; removed by trim
+by_product::Total Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Total Recoveries,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_product::Total Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+by_year::Avg Paid per Claim,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Avg Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Broker Paid,EXPECTED,broken before; removed by trim
+by_year::Claim Count,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Closed Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Commission,EXPECTED,broken before; removed by trim
+by_year::Commission Ratio,EXPECTED,broken before; removed by trim
+by_year::Gross Reserve (old),EXPECTED,broken before; removed by trim
+by_year::Incurred,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Legacy Severity,EXPECTED,broken before; removed by trim
+by_year::Max Paid,IDENTICAL,
+by_year::Min Reserve,IDENTICAL,
+by_year::Net Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Old Loss Ratio,EXPECTED,broken before; removed by trim
+by_year::Open Claims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Open Ratio,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Paid Growth,EXPECTED,broken before; removed by trim
+by_year::Paid Last Year,EXPECTED,broken before; removed by trim
+by_year::Paid to Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Policies With Claims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Reserve Movement,EXPECTED,broken before; removed by trim
+by_year::Total Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Total Recoveries,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+by_year::Total Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+rowcount::DimDate,IDENTICAL,
+rowcount::DimPolicy,IDENTICAL,
+rowcount::DimProduct,IDENTICAL,
+rowcount::FactClaims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Avg Net per Claim,UNTESTED,"could not be evaluated: untranslatable: unsupported function in: AVERAGEX(FactClaims, FactClaims[PaidAmount] - FactClaims[RecoveryAmount])"
+total::Avg Paid per Claim,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Avg Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Broker Paid,EXPECTED,broken before; removed by trim
+total::Claim Count,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Closed Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Commission,EXPECTED,broken before; removed by trim
+total::Commission Ratio,EXPECTED,broken before; removed by trim
+total::Gross Reserve (old),EXPECTED,broken before; removed by trim
+total::Incurred,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Legacy Severity,EXPECTED,broken before; removed by trim
+total::Max Paid,IDENTICAL,
+total::Min Reserve,IDENTICAL,
+total::Net Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Old Loss Ratio,EXPECTED,broken before; removed by trim
+total::Open Claims,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Open Ratio,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Paid Growth,EXPECTED,broken before; removed by trim
+total::Paid Last Year,EXPECTED,broken before; removed by trim
+total::Paid to Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Policies With Claims,IDENTICAL,
+total::Reserve Movement,EXPECTED,broken before; removed by trim
+total::Total Paid,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Total Recoveries,EXPECTED,"fresh data: same definition, unchanged on frozen data"
+total::Total Reserve,EXPECTED,"fresh data: same definition, unchanged on frozen data"

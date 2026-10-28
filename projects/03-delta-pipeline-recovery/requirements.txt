@@ -1,0 +1,6 @@
+deltalake
+duckdb
+pandas
+pyarrow
+pytest
+pytest-xdist

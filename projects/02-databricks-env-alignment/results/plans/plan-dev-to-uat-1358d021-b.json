@@ -1,0 +1,54 @@
+{
+  "plan_id": "dev-to-uat-1358d021-b",
+  "source": "dev",
+  "target": "uat",
+  "created_utc": "2026-10-23T20:20:41Z",
+  "items": [
+    {
+      "kind": "view",
+      "object": "core.v_claim_aging",
+      "action": "replace_view",
+      "reason": [
+        "left:  select claim_id,status,(cast('2026-06-30' as date)-reported_date)as age_days from core.claim where(status in('open','reopened'))",
+        "right: select claim_id,status,(cast('2026-06-30' as date)-reported_date)as age_days from core.claim where(status in('open'))"
+      ],
+      "backup": {
+        "type": "ddl_capture",
+        "object": "core.v_claim_aging",
+        "previous_sql": "CREATE VIEW core.v_claim_aging AS SELECT claim_id, status, (CAST('2026-06-30' AS DATE) - reported_date) AS age_days FROM core.claim WHERE (status IN ('open'));",
+        "note": "previous definition stored in the plan and in the full catalog copy"
+      },
+      "change": [
+        "CREATE OR REPLACE VIEW core.v_claim_aging AS SELECT claim_id, status, (CAST('2026-06-30' AS DATE) - reported_date) AS age_days FROM core.claim WHERE (status IN ('open', 'reopened'))"
+      ],
+      "rollback": [
+        "CREATE OR REPLACE VIEW core.v_claim_aging AS SELECT claim_id, status, (CAST('2026-06-30' AS DATE) - reported_date) AS age_days FROM core.claim WHERE (status IN ('open'))"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "view is queryable"
+      ],
+      "post_tests": [
+        "view is queryable",
+        "normalised DDL == source DDL",
+        "all core views queryable"
+      ],
+      "id": "001",
+      "target_fingerprint": "418d42a9c6c38d9e37467f8c3886982b8886564f42147c683ed0068fcdb00082",
+      "expected_fingerprint": "73b88416dbea9b112160a8a201465240c005ee5d034e560654c96900b930e7a1"
+    }
+  ],
+  "notes": [
+    "Split out by risk linter R1: run with the dependent scheduled job paused."
+  ],
+  "approval_token": "APPROVE-ea046eb580323dd1",
+  "lint": [
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "001",
+      "message": "core.v_claim_aging: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    }
+  ]
+}

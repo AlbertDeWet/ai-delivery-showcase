@@ -1,0 +1,30 @@
+{
+  "plan_id": "rollback-drill",
+  "source": "dev",
+  "target": "uat",
+  "notes": [],
+  "items": [
+    {
+      "id": "001",
+      "kind": "view",
+      "object": "core.v_drill_broken",
+      "action": "create_view",
+      "backup": {
+        "type": "ddl_capture",
+        "previous_sql": null
+      },
+      "change": [
+        "CREATE VIEW IF NOT EXISTS core.v_drill_broken AS SELECT error('planted failure') AS x"
+      ],
+      "rollback": [
+        "DROP VIEW IF EXISTS core.v_drill_broken"
+      ],
+      "pre_tests": [],
+      "post_tests": [],
+      "target_fingerprint": null,
+      "expected_fingerprint": "6b75e2190bbca2a06deb2ea4eb61cb9dc8d013eb6d321208c070f5c4995840be"
+    }
+  ],
+  "approval_token": "APPROVE-4cf10eb847b8335f",
+  "lint": []
+}

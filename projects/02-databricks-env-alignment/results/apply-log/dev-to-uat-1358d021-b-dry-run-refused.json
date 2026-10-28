@@ -1,0 +1,18 @@
+{
+  "plan_id": "dev-to-uat-1358d021-b",
+  "env": "uat",
+  "mode": "dry-run",
+  "items": 1,
+  "started_utc": "2026-10-23T20:20:42.424850+00:00",
+  "lint": [
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "001",
+      "message": "core.v_claim_aging: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    }
+  ],
+  "status": "refused",
+  "reason": "HIGH risk not accepted: ['R1:001'] (after review, pass --accept-risk RULE:ITEM for each one)"
+}

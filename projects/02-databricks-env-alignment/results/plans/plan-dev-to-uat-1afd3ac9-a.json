@@ -1,0 +1,218 @@
+{
+  "plan_id": "dev-to-uat-1afd3ac9-a",
+  "source": "dev",
+  "target": "uat",
+  "created_utc": "2026-10-23T20:20:30Z",
+  "items": [
+    {
+      "kind": "config_table",
+      "object": "core.cfg_fx_source",
+      "action": "upsert_rows",
+      "reason": [
+        "keys with different values: ['ZAR']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_fx_source__1afd3ac9",
+        "sql": "CREATE TABLE _backup.cfg_fx_source__1afd3ac9 AS SELECT * FROM core.cfg_fx_source"
+      },
+      "change": [
+        "DELETE FROM core.cfg_fx_source WHERE key = 'ZAR'",
+        "INSERT INTO core.cfg_fx_source VALUES ('ZAR', 'central_bank_feed', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_fx_source",
+        "CREATE TABLE core.cfg_fx_source AS SELECT * FROM _backup.cfg_fx_source__1afd3ac9"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "001",
+      "target_fingerprint": "0a8aa63ee62b5af2c2a7873428ac486c8ad0973addd70bdb71f8906d7c481e9b",
+      "expected_fingerprint": "cb11b5d8fcf7de33e88b77431fa5623712107d0d9e6408c13301a8a8bd89cb22"
+    },
+    {
+      "kind": "config_table",
+      "object": "core.cfg_report_map",
+      "action": "upsert_rows",
+      "reason": [
+        "keys missing in right: ['report_map_02', 'report_map_03']"
+      ],
+      "backup": {
+        "type": "backup_table",
+        "table": "_backup.cfg_report_map__1afd3ac9",
+        "sql": "CREATE TABLE _backup.cfg_report_map__1afd3ac9 AS SELECT * FROM core.cfg_report_map"
+      },
+      "change": [
+        "INSERT INTO core.cfg_report_map VALUES ('report_map_02', 'val_127', TRUE)",
+        "INSERT INTO core.cfg_report_map VALUES ('report_map_03', 'val_833', TRUE)"
+      ],
+      "rollback": [
+        "DROP TABLE IF EXISTS core.cfg_report_map",
+        "CREATE TABLE core.cfg_report_map AS SELECT * FROM _backup.cfg_report_map__1afd3ac9"
+      ],
+      "removes_keys": [],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)",
+        "row count recorded"
+      ],
+      "post_tests": [
+        "row hashes per key == source",
+        "schema == source",
+        "all core views queryable"
+      ],
+      "id": "002",
+      "target_fingerprint": "cd8abac2a54b9d34fa05ec4121ce4ed13461183ce92449c8fcc257cfba862db9",
+      "expected_fingerprint": "61eb844f457b36f0a083845047bd436dd0179529c4ff305da4c160a7d3ee1601"
+    },
+    {
+      "kind": "view",
+      "object": "core.v_broker_new",
+      "action": "create_view",
+      "reason": [
+        "only in dev"
+      ],
+      "backup": {
+        "type": "ddl_capture",
+        "object": "core.v_broker_new",
+        "previous_sql": null,
+        "note": "previous definition stored in the plan and in the full catalog copy"
+      },
+      "change": [
+        "CREATE VIEW IF NOT EXISTS core.v_broker_new AS SELECT * FROM core.broker WHERE (broker_id > 35)"
+      ],
+      "rollback": [
+        "DROP VIEW IF EXISTS core.v_broker_new"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "view is queryable",
+        "normalised DDL == source DDL",
+        "all core views queryable"
+      ],
+      "id": "003",
+      "target_fingerprint": null,
+      "expected_fingerprint": "f6489374bf7a848ad0bc837f1c3d5d9ac45aaf664bd9b08b53d71fb80a657397"
+    },
+    {
+      "kind": "job",
+      "object": "fx_load",
+      "action": "deploy_job",
+      "reason": [
+        "schedule.quartz_cron_expression"
+      ],
+      "backup": {
+        "type": "file_copy",
+        "path": "jobs/fx_load.json",
+        "previous": {
+          "job_id": 672235371,
+          "created_time": 1760000000000,
+          "name": "fx_load",
+          "tags": {
+            "owner": "reporting",
+            "uses_objects": "core.cfg_fx_source,core.v_fx_rates_active"
+          },
+          "schedule": {
+            "quartz_cron_expression": "0 0 4 * * ?",
+            "timezone_id": "UTC",
+            "pause_status": "PAUSED"
+          },
+          "job_clusters": [
+            {
+              "job_cluster_key": "main",
+              "new_cluster": {
+                "spark_version": "15.4.x-scala2.12",
+                "node_type_id": "Standard_D4ds_v5",
+                "num_workers": 2
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "task_key": "load_fx",
+              "job_cluster_key": "main",
+              "notebook_task": {
+                "notebook_path": "/Workspace/bundles/contoso_reporting/uat/src/load_fx"
+              }
+            }
+          ],
+          "email_notifications": {
+            "on_failure": [
+              "reporting-oncall-uat@contoso-insurance.example"
+            ]
+          }
+        }
+      },
+      "change": [
+        "write jobs/fx_load.json (source definition, env tokens -> uat, env fields kept)"
+      ],
+      "payload": {
+        "job_id": 672235371,
+        "created_time": 1760000000000,
+        "name": "fx_load",
+        "tags": {
+          "owner": "reporting",
+          "uses_objects": "core.cfg_fx_source,core.v_fx_rates_active"
+        },
+        "schedule": {
+          "quartz_cron_expression": "0 0 5 * * ?",
+          "timezone_id": "UTC",
+          "pause_status": "PAUSED"
+        },
+        "job_clusters": [
+          {
+            "job_cluster_key": "main",
+            "new_cluster": {
+              "spark_version": "15.4.x-scala2.12",
+              "node_type_id": "Standard_D4ds_v5",
+              "num_workers": 2
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "task_key": "load_fx",
+            "job_cluster_key": "main",
+            "notebook_task": {
+              "notebook_path": "/Workspace/bundles/contoso_reporting/uat/src/load_fx"
+            }
+          }
+        ],
+        "email_notifications": {
+          "on_failure": [
+            "reporting-oncall-uat@contoso-insurance.example"
+          ]
+        }
+      },
+      "rollback": [
+        "restore jobs/fx_load.json from backup"
+      ],
+      "pre_tests": [
+        "fingerprint matches plan (stale-plan guard)"
+      ],
+      "post_tests": [
+        "job JSON == source after env masking",
+        "every uses_objects entry exists in target"
+      ],
+      "id": "005",
+      "target_fingerprint": "2c0dd58075b766eee70cb23714515975154bde3056500b15b70f017222f24204",
+      "expected_fingerprint": "d863c5d77d1aa0ad2bf6a33c7aa142348618f7c98ac4bbfadd77a6bcbaa1c5cc"
+    }
+  ],
+  "notes": [
+    "protected view team_b.v_team_b_summary: drift - excluded by design",
+    "protected config_table team_b.cfg_team_b_settings: drift - excluded by design",
+    "protected job team_b_ingest: expected - excluded by design"
+  ],
+  "approval_token": "APPROVE-8007fb1fcec2cc0b",
+  "lint": []
+}

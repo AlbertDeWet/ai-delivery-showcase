@@ -1,0 +1,264 @@
+{
+  "seed": 20250101,
+  "python": "3.13.5",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "timings_s": {
+    "generate": 0.44,
+    "pipeline_buggy": 8.914,
+    "pipeline_fixed": 3.794,
+    "dq_clean": 2.675,
+    "dq_missing_fx": 3.601,
+    "recover": 10.713,
+    "recover_with_fault": 6.005
+  },
+  "dataset": {
+    "transactions": 22459,
+    "fx_rates": 96,
+    "accounts": 75,
+    "months": 12
+  },
+  "incident_a_pipeline_buggy": {
+    "bronze_rows": 24547,
+    "redelivered_rows": 2088,
+    "fx_rows": 96,
+    "silver_rows": 24547,
+    "gold_rows": 24547,
+    "summary_rows": 5031
+  },
+  "incident_a_pipeline_fixed": {
+    "bronze_rows": 24547,
+    "redelivered_rows": 2088,
+    "fx_rows": 96,
+    "silver_rows": 22459,
+    "gold_rows": 22459,
+    "summary_rows": 5031
+  },
+  "incident_a": {
+    "redelivered_entity_months": 9,
+    "before": {
+      "entity_months_checked": 96,
+      "doubled_count": 9,
+      "duplicate_txn_ids": 2088,
+      "other_mismatch": 0,
+      "doubled": [
+        {
+          "entity": "CI-E01",
+          "month": "2025-08"
+        },
+        {
+          "entity": "CI-E02",
+          "month": "2025-03"
+        },
+        {
+          "entity": "CI-E02",
+          "month": "2025-04"
+        },
+        {
+          "entity": "CI-E03",
+          "month": "2025-06"
+        },
+        {
+          "entity": "CI-E04",
+          "month": "2025-02"
+        },
+        {
+          "entity": "CI-E05",
+          "month": "2025-09"
+        },
+        {
+          "entity": "CI-E06",
+          "month": "2025-11"
+        },
+        {
+          "entity": "CI-E07",
+          "month": "2025-05"
+        },
+        {
+          "entity": "CI-E08",
+          "month": "2025-12"
+        }
+      ]
+    },
+    "after": {
+      "entity_months_checked": 96,
+      "doubled_count": 0,
+      "duplicate_txn_ids": 0,
+      "other_mismatch": 0
+    }
+  },
+  "dq_clean": {
+    "passed": true,
+    "checks": [
+      {
+        "check": "money_dtypes",
+        "passed": true,
+        "bad_columns": {}
+      },
+      {
+        "check": "null_keys",
+        "passed": true,
+        "bad_rows": 0
+      },
+      {
+        "check": "fx_fallback_to_one",
+        "passed": true,
+        "constant_near_parity": [],
+        "rate_one_groups": [],
+        "fallback_flagged": [],
+        "near_one_short_history": [],
+        "near_one_info": [],
+        "missing_rates": []
+      },
+      {
+        "check": "fx_row_consistency",
+        "passed": true,
+        "bad_rows": 0,
+        "sample": []
+      },
+      {
+        "check": "currency_sanity",
+        "passed": true,
+        "problems": []
+      },
+      {
+        "check": "id_collision",
+        "passed": true,
+        "collisions": 0,
+        "sample": []
+      },
+      {
+        "check": "row_count_lineage",
+        "passed": true,
+        "counts": {
+          "bronze": 24547,
+          "bronze_distinct_txn": 22459,
+          "silver": 22459,
+          "gold": 22459,
+          "control": 22459
+        }
+      }
+    ]
+  },
+  "dq_missing_fx_rate": {
+    "passed": false,
+    "checks": [
+      {
+        "check": "money_dtypes",
+        "passed": true,
+        "bad_columns": {}
+      },
+      {
+        "check": "null_keys",
+        "passed": true,
+        "bad_rows": 0
+      },
+      {
+        "check": "fx_fallback_to_one",
+        "passed": false,
+        "constant_near_parity": [],
+        "rate_one_groups": [
+          {
+            "currency": "EUR",
+            "month": "2025-10",
+            "rows": 234
+          }
+        ],
+        "fallback_flagged": [
+          {
+            "currency": "EUR",
+            "month": "2025-10",
+            "rows": 234
+          }
+        ],
+        "near_one_short_history": [],
+        "near_one_info": [],
+        "missing_rates": [
+          {
+            "currency": "EUR",
+            "month": "2025-10"
+          }
+        ]
+      },
+      {
+        "check": "fx_row_consistency",
+        "passed": true,
+        "bad_rows": 0,
+        "sample": []
+      },
+      {
+        "check": "currency_sanity",
+        "passed": true,
+        "problems": []
+      },
+      {
+        "check": "id_collision",
+        "passed": true,
+        "collisions": 0,
+        "sample": []
+      },
+      {
+        "check": "row_count_lineage",
+        "passed": true,
+        "counts": {
+          "bronze": 22459,
+          "bronze_distinct_txn": 22459,
+          "silver": 22459,
+          "gold": 22459,
+          "control": 22459
+        }
+      }
+    ]
+  },
+  "incident_b": {
+    "incident_version": 1,
+    "pre_incident_version": 0,
+    "month": "2025-07",
+    "delete_metrics": {
+      "num_added_files": 0,
+      "num_removed_files": 1,
+      "num_deleted_rows": 1817,
+      "num_copied_rows": 0,
+      "execution_time_ms": 2,
+      "scan_time_ms": 2,
+      "rewrite_time_ms": 0
+    },
+    "rows_deleted": 1817
+  },
+  "recovery": {
+    "status": "RECOVERED",
+    "restored_rows": 1817,
+    "first_verify_pass_s": 6.306,
+    "total_s": 10.665,
+    "timings_s": {
+      "1_retention_check": 1.135,
+      "2_backup": 3.719,
+      "3_dry_run_verify": 1.182,
+      "4_restore": 0.373,
+      "5_live_verify": 1.221,
+      "7_downstream_checks": 2.599
+    },
+    "hours_remaining": 44.0,
+    "dry_run_passed": 12,
+    "verify_tests": 12,
+    "cells": 600,
+    "breaks": 0,
+    "gold_total_usd": "14730603654.52",
+    "downstream_dq_passed": true
+  },
+  "rollback_proof": {
+    "status": "ROLLED_BACK",
+    "rollback": {
+      "restored_to_version": 1,
+      "new_version": 3,
+      "rows_after_rollback": 20642,
+      "matches_pre_restore_state": true
+    },
+    "failed_live_tests": [
+      "V04",
+      "V06",
+      "V09",
+      "V10",
+      "V11"
+    ]
+  }
+}

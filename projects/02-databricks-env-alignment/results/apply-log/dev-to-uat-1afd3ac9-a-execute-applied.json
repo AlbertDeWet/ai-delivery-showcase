@@ -1,0 +1,24 @@
+{
+  "plan_id": "dev-to-uat-1afd3ac9-a",
+  "env": "uat",
+  "mode": "execute",
+  "items": 4,
+  "started_utc": "2026-10-23T20:20:32.897846+00:00",
+  "lint": [],
+  "backup_dir": "workspaces/_backups/uat/20261023T202034029512Z-dev-to-uat-1afd3ac9-a",
+  "tests_before": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": false,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "tests_after": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": true,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "status": "applied"
+}

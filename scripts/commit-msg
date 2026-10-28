@@ -1,0 +1,10 @@
+#!/bin/sh
+# commit-msg hook: block denylisted terms, emails and attribution lines in the commit message.
+ROOT="$(git rev-parse --show-toplevel)"
+for PY in "$ROOT/.venv/Scripts/python.exe" "$ROOT/.venv/bin/python" python3 python; do
+  if command -v "$PY" >/dev/null 2>&1 || [ -x "$PY" ]; then
+    exec "$PY" "$ROOT/scripts/leakcheck.py" --commit-msg "$1"
+  fi
+done
+echo "commit-msg: no Python found; refusing to commit (fail closed)." >&2
+exit 2

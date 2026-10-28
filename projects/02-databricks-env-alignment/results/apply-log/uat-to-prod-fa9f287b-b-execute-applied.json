@@ -1,0 +1,67 @@
+{
+  "plan_id": "uat-to-prod-fa9f287b-b",
+  "env": "prod",
+  "mode": "execute",
+  "items": 3,
+  "started_utc": "2026-10-23T20:20:57.034414+00:00",
+  "lint": [
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "011",
+      "message": "core.v_claim_aging: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "011",
+      "message": "core.v_claim_aging: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "013",
+      "message": "core.v_large_claims: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['claims_daily (0 0 2 * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "013",
+      "message": "core.v_large_claims: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "014",
+      "message": "core.v_premium_by_broker: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "014",
+      "message": "core.v_premium_by_broker: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    }
+  ],
+  "backup_dir": "workspaces/_backups/prod/20261023T202058015540Z-uat-to-prod-fa9f287b-b",
+  "tests_before": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": false,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "tests_after": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": true,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "status": "applied"
+}

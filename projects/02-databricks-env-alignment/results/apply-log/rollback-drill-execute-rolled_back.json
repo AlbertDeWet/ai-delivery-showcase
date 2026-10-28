@@ -1,0 +1,37 @@
+{
+  "plan_id": "rollback-drill",
+  "env": "uat",
+  "mode": "execute",
+  "items": 1,
+  "started_utc": "2026-10-23T20:21:06.006055+00:00",
+  "lint": [],
+  "backup_dir": "workspaces_drill/_backups/uat/20261023T202107098174Z-rollback-drill",
+  "tests_before": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": false,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "tests_after": {
+    "T1_core_views_queryable": false,
+    "T2_changed_objects_match_source": true,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "status": "rolled_back",
+  "failures": {
+    "T1_core_views_queryable": [
+      "core.v_drill_broken: Invalid Input Error: planted failure"
+    ]
+  },
+  "restore_verified": true,
+  "tests_after_rollback": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": true,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  }
+}

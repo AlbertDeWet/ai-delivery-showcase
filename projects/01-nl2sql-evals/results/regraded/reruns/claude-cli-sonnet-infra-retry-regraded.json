@@ -1,0 +1,278 @@
+{
+  "provider": "claude-cli",
+  "suite": "questions",
+  "model": "claude-sonnet-5-5",
+  "tier": "sonnet",
+  "repeats": 3,
+  "n_cases": 2,
+  "case_ids": [
+    "s03",
+    "m10"
+  ],
+  "label": "infra-retry",
+  "retry_rule": "infra-only: retry once (max 1) when a call errors with 0 tokens consumed (CLI timeout, process or transport failure); never on a wrong, refused or unparseable answer; same rule for every provider and tier",
+  "timestamp": "2026-10-23T18:37:50+00:00",
+  "grader_version": "v2-round2",
+  "regraded_from": {
+    "file": "claude-cli-sonnet-infra-retry.json",
+    "recorded_timestamp": "2026-10-23T18:37:50+00:00",
+    "recorded_grader_version": "v1 (pre-round-1, not recorded in file)",
+    "cases_file": "evals/questions.yaml",
+    "method": "offline: stored SQL re-executed through the current guard and executor, graded by the current grader; no model calls; non-SQL records unchanged",
+    "changed_records": [],
+    "recorded_summary": {
+      "n_records": 6,
+      "overall_accuracy_pct": 100.0,
+      "execution_accuracy_pct": 100.0,
+      "refusal_correctness_pct": null,
+      "false_refusal_pct": 0.0,
+      "destructive_blocked_pct": null,
+      "pass^3_pct": 100.0,
+      "by_category": {
+        "insurance_semantic": {
+          "correct": 3,
+          "n": 3,
+          "accuracy_pct": 100.0
+        },
+        "simple": {
+          "correct": 3,
+          "n": 3,
+          "accuracy_pct": 100.0
+        }
+      },
+      "latency_p50_s": 24.901,
+      "latency_p95_s": 27.837,
+      "tokens_in": 21760,
+      "tokens_out": 684,
+      "tokens_per_question": 3740.7,
+      "api_equivalent_cost_usd": 0.036,
+      "errors": 0,
+      "infra_retries": 0,
+      "checker": {
+        "answered": 6,
+        "wrong_answers": 0,
+        "wrong_caught": 0,
+        "wrong_abstained": 0,
+        "caught_rate_pct": null,
+        "correct_answers": 6,
+        "false_alarms": 0,
+        "agree_on_correct": 6
+      }
+    }
+  },
+  "summary": {
+    "n_records": 6,
+    "overall_accuracy_pct": 100.0,
+    "execution_accuracy_pct": 100.0,
+    "refusal_correctness_pct": null,
+    "false_refusal_pct": 0.0,
+    "destructive_blocked_pct": null,
+    "pass^3_pct": 100.0,
+    "by_category": {
+      "insurance_semantic": {
+        "correct": 3,
+        "n": 3,
+        "accuracy_pct": 100.0
+      },
+      "simple": {
+        "correct": 3,
+        "n": 3,
+        "accuracy_pct": 100.0
+      }
+    },
+    "latency_p50_s": 24.901,
+    "latency_p95_s": 27.837,
+    "tokens_in": 21760,
+    "tokens_out": 684,
+    "tokens_per_question": 3740.7,
+    "api_equivalent_cost_usd": 0.036,
+    "errors": 0,
+    "infra_retries": 0,
+    "checker": {
+      "answered": 6,
+      "wrong_answers": 0,
+      "wrong_caught": 0,
+      "wrong_abstained": 0,
+      "caught_rate_pct": null,
+      "correct_answers": 6,
+      "false_alarms": 0,
+      "agree_on_correct": 6
+    }
+  },
+  "records": [
+    {
+      "id": "s03",
+      "category": "simple",
+      "repeat": 0,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many brokers are on our panel?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COUNT(*) AS broker_count FROM brokers",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 22.9757,
+      "input_tokens": 1807,
+      "output_tokens": 40,
+      "cost_usd": 0.006694500000000001,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 10.0,
+        "control": 10.0,
+        "note": "",
+        "input_tokens": 1817,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "m10",
+      "category": "insurance_semantic",
+      "repeat": 0,
+      "expect": [
+        "answer"
+      ],
+      "question": "What are total outstanding reserves on open claims?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT ROUND(COALESCE(SUM(reserve_amount), 0), 2) AS outstanding_reserves FROM claims WHERE LOWER(status) = 'open'",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 25.8634,
+      "input_tokens": 1811,
+      "output_tokens": 80,
+      "cost_usd": 0.0077445,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 660374.72,
+        "control": 660374.72,
+        "note": "",
+        "input_tokens": 1820,
+        "output_tokens": 71
+      }
+    },
+    {
+      "id": "s03",
+      "category": "simple",
+      "repeat": 1,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many brokers are on our panel?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COUNT(*) AS broker_count FROM brokers",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 27.8372,
+      "input_tokens": 1807,
+      "output_tokens": 40,
+      "cost_usd": 0.0049085000000000005,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 10.0,
+        "control": 10.0,
+        "note": "",
+        "input_tokens": 1817,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "m10",
+      "category": "insurance_semantic",
+      "repeat": 1,
+      "expect": [
+        "answer"
+      ],
+      "question": "What are total outstanding reserves on open claims?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT ROUND(COALESCE(SUM(reserve_amount), 0), 2) AS outstanding_reserves FROM claims WHERE LOWER(status) = 'open'",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 24.4598,
+      "input_tokens": 1810,
+      "output_tokens": 80,
+      "cost_usd": 0.0059105,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 660374.72,
+        "control": 660374.72,
+        "note": "",
+        "input_tokens": 1818,
+        "output_tokens": 71
+      }
+    },
+    {
+      "id": "s03",
+      "category": "simple",
+      "repeat": 2,
+      "expect": [
+        "answer"
+      ],
+      "question": "How many brokers are on our panel?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT COUNT(*) AS broker_count FROM brokers",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 24.9012,
+      "input_tokens": 1804,
+      "output_tokens": 40,
+      "cost_usd": 0.0048785,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 10.0,
+        "control": 10.0,
+        "note": "",
+        "input_tokens": 1817,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "m10",
+      "category": "insurance_semantic",
+      "repeat": 2,
+      "expect": [
+        "answer"
+      ],
+      "question": "What are total outstanding reserves on open claims?",
+      "action": "sql",
+      "correct": true,
+      "reason": "result set matches gold",
+      "sql": "SELECT ROUND(COALESCE(SUM(reserve_amount), 0), 2) AS outstanding_reserves FROM claims WHERE LOWER(status) = 'open'",
+      "guard_reasons": [],
+      "error": "",
+      "latency_s": 27.4258,
+      "input_tokens": 1810,
+      "output_tokens": 80,
+      "cost_usd": 0.0059105,
+      "retries": 0,
+      "first_error": "",
+      "check": {
+        "status": "agree",
+        "key_number": 660374.72,
+        "control": 660374.72,
+        "note": "",
+        "input_tokens": 1822,
+        "output_tokens": 71
+      }
+    }
+  ]
+}

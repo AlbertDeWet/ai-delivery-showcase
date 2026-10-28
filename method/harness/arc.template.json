@@ -1,0 +1,19 @@
+{
+  "_comment": "Copy this to a project root as `.arc` to opt that project into ARC enforcement. Its presence is the switch: no .arc, no hooks fire, nothing changes.",
+
+  "checks": {
+    "_comment": "The commands that must have actually run before a file-modifying turn may end. Matched on the first two words, so arguments don't defeat the gate. Remove any you don't have - an empty checks block disables the Stop gate for this project.",
+    "test": "npm test",
+    "lint": "npm run lint"
+  },
+
+  "test_paths": [
+    "_comment: globs, relative to the project root or a bare filename. While a fix is in progress these cannot be edited, so a run cannot weaken the check that gates it.",
+    "tests/**",
+    "test/**",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/test_*.py",
+    "**/*_test.go"
+  ]
+}

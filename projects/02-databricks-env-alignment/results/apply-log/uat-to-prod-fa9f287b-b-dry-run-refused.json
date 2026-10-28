@@ -1,0 +1,53 @@
+{
+  "plan_id": "uat-to-prod-fa9f287b-b",
+  "env": "prod",
+  "mode": "dry-run",
+  "items": 3,
+  "started_utc": "2026-10-23T20:20:56.317272+00:00",
+  "lint": [
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "011",
+      "message": "core.v_claim_aging: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "011",
+      "message": "core.v_claim_aging: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "013",
+      "message": "core.v_large_claims: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['claims_daily (0 0 2 * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "013",
+      "message": "core.v_large_claims: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R1",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "014",
+      "message": "core.v_premium_by_broker: CREATE OR REPLACE / DROP on an object used (directly or through views) by job(s) ['reporting_views_refresh (0 0/30 * * * ?)'] (paused jobs can be resumed) - likely to break a running job; split into its own PR and run in a paused window"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "014",
+      "message": "core.v_premium_by_broker: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    }
+  ],
+  "status": "refused",
+  "reason": "HIGH risk not accepted: ['R1:011', 'R1:013', 'R1:014', 'R5:011', 'R5:013', 'R5:014'] (after review, pass --accept-risk RULE:ITEM for each one)"
+}

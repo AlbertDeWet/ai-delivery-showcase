@@ -1,0 +1,661 @@
+{
+  "left": "dev",
+  "right": "uat",
+  "matrix": {
+    "view": {
+      "identical": 38,
+      "expected": 0,
+      "drift": 0,
+      "missing": 0,
+      "extra": 0,
+      "total": 38,
+      "aligned": 38
+    },
+    "config_table": {
+      "identical": 29,
+      "expected": 1,
+      "drift": 0,
+      "missing": 0,
+      "extra": 0,
+      "total": 30,
+      "aligned": 30
+    },
+    "job": {
+      "identical": 0,
+      "expected": 5,
+      "drift": 0,
+      "missing": 0,
+      "extra": 0,
+      "total": 5,
+      "aligned": 5
+    },
+    "bundle": {
+      "identical": 7,
+      "expected": 0,
+      "drift": 0,
+      "missing": 0,
+      "extra": 0,
+      "total": 7,
+      "aligned": 7
+    },
+    "protected": {
+      "objects": 3,
+      "differences": 3,
+      "note": "reported only - never planned or touched"
+    }
+  },
+  "diffs": [
+    {
+      "kind": "view",
+      "obj": "core.v_avg_claim_by_status",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_central",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_east",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_league",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_new",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_north",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_south",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_broker_west",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claim_aging",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claim_ratio_by_product",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_by_product",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_closed",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_last_quarter",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_open",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_per_policy",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_rejected",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_claims_reopened",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_fx_rates_active",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_kpi_thresholds",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_lapse_rate",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_large_claims",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_new_business",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_active",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_cancelled",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_count_by_month",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_lapsed",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_line_liability",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_line_marine",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_line_motor",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_line_property",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_line_travel",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_policy_no_claims",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_premium_by_broker",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_premium_by_product",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_premium_by_region",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_product_catalogue",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_renewals_due",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "core.v_report_mapping",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "view",
+      "obj": "team_b.v_team_b_summary",
+      "status": "drift",
+      "detail": [
+        "left:  select count_star()as runs,sum(rows_loaded)as rows from team_b.ingest_log where(rows_loaded>=0)",
+        "right: select count_star()as runs,sum(rows_loaded)as rows from team_b.ingest_log where(rows_loaded>0)"
+      ],
+      "protected": true
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_branch",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_calendar",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_channel",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_claim_cause",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_commission",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_cost_centre",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_cover_type",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_currency",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_distribution",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_email_routes",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_environment",
+      "status": "expected",
+      "detail": [
+        "keys with different values: ['catalog', 'host', 'landing_path']",
+        "table is environment-specific by design"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_feature_flags",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_fx_source",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_gl_account",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_ibnr_method",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_kpi_threshold",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_large_loss_limit",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_lob_mapping",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_payment_method",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_product_mapping",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_region_mapping",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_reinsurance_treaty",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_report_map",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_report_period",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_reserve_factor",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_risk_class",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_rounding",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_segment",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_status_mapping",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "core.cfg_tax_rate",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "config_table",
+      "obj": "team_b.cfg_team_b_settings",
+      "status": "drift",
+      "detail": [
+        "keys with different values: ['batch_size']"
+      ],
+      "protected": true
+    },
+    {
+      "kind": "job",
+      "obj": "claims_daily",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path",
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "job",
+      "obj": "fx_load",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "job",
+      "obj": "month_end_close",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path",
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "job",
+      "obj": "policy_daily",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path",
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "job",
+      "obj": "reporting_views_refresh",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path",
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "protected": false
+    },
+    {
+      "kind": "job",
+      "obj": "team_b_ingest",
+      "status": "expected",
+      "detail": [
+        "email_notifications.on_failure[0]",
+        "tasks[0].notebook_task.notebook_path",
+        "tasks[1].notebook_task.notebook_path"
+      ],
+      "protected": true
+    },
+    {
+      "kind": "bundle",
+      "obj": "bundle",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "include",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "resources",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "targets.dev",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "targets.prod",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "targets.uat",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    },
+    {
+      "kind": "bundle",
+      "obj": "variables",
+      "status": "identical",
+      "detail": [],
+      "protected": false
+    }
+  ]
+}

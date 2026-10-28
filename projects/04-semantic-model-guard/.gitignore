@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+work/
+models/
+data/
+reports/
+results_run.log
+marker.key
+.smguard/

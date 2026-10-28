@@ -1,0 +1,16 @@
+{
+  "plan_id": "dev-to-uat-1afd3ac9-a",
+  "env": "uat",
+  "mode": "dry-run",
+  "items": 4,
+  "started_utc": "2026-10-23T20:20:31.422281+00:00",
+  "lint": [],
+  "status": "dry-run",
+  "would_apply": [
+    "001 config_table core.cfg_fx_source upsert_rows",
+    "002 config_table core.cfg_report_map upsert_rows",
+    "003 view core.v_broker_new create_view",
+    "005 job fx_load deploy_job"
+  ],
+  "approval_token": "APPROVE-8007fb1fcec2cc0b"
+}

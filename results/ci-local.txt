@@ -1,0 +1,22 @@
+Local run of every suite, 2026-10-23, Windows 11, Python 3.13, each project's own .venv.
+Command per project: python -m pytest tests (03 with -n 4). Counts are pytest's own summary lines.
+
+01-nl2sql-evals:             352 passed, 0 skipped, 0 failed (134.8 s)
+02-databricks-env-alignment: builder 35 passed; adversary 135 passed, 3 xfailed (strict: H4, K1, K2); 0 failed
+                             (demo re-run first after the seed currency change: exit 0, 74.5 s)
+03-delta-pipeline-recovery:  151 passed, 0 failed (117.9 s, -n 4)
+04-semantic-model-guard:     248 passed, 0 failed (97.5 s)
+method/harness:              41 passed, 0 failed (test_arc_guard.py)
+leakcheck:                   clean (242 files scanned, 11 denylist terms)
+
+Notes on this run:
+- Correction: the earlier version of this file counted 01 as "240 passed" from progress dots, which the
+  review found included one skipped test. This run uses pytest's summary line: 352 passed, 0 skipped
+  (01's suite has grown since, with its adversary rounds).
+- 04: the first full run had 1 failure, a Windows PermissionError when renaming a temporary folder in
+  test_apply_backs_up_and_leaves_original_untouched. That test file then passed alone (16 passed) and the
+  full suite passed on re-run (248 passed). It is recorded here as a transient file-lock flake.
+- 02: the first adversary run after the demo re-run failed 1 test, because the README still quoted the
+  old demo time (104.9 s). The README now quotes 74.5 s. The adversary's README-count test reads the
+  previously recorded results file, so the suite was run three times to settle: 134 passed + 1
+  deselected, then 135 passed, then 135 passed. The last run is the one recorded.

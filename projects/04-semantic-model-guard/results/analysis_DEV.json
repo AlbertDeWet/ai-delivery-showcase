@@ -1,0 +1,256 @@
+{
+  "before": {
+    "model": "DEV",
+    "tables": 4,
+    "columns": 43,
+    "fact_columns": 32,
+    "measures": 26,
+    "broken_measures": {
+      "Gross Reserve (old)": "missing FactClaims[GrossReserveOld]",
+      "Paid Last Year": "missing [Total Paid PY]",
+      "Broker Paid": "missing FactClaims[BrokerPaidAmt]",
+      "Commission": "missing table DimBroker (in DimBroker[Commission])",
+      "Old Loss Ratio": "missing [Earned Premium]",
+      "Reopen Paid": "missing FactClaims[PaidAmt]",
+      "Reserve Movement": "depends on broken [Gross Reserve (old)]",
+      "Legacy Severity": "depends on broken [Gross Reserve (old)]",
+      "Paid Growth": "depends on broken [Paid Last Year]",
+      "Commission Ratio": "depends on broken [Commission]"
+    },
+    "unused_columns": [
+      "FactClaims[ClaimNarrative]",
+      "FactClaims[SourceRowHash]",
+      "FactClaims[AdjusterNote]",
+      "FactClaims[ExternalClaimRef]",
+      "FactClaims[Attr03]",
+      "FactClaims[SourceFileName]",
+      "FactClaims[LegacyClaimNo]",
+      "DimPolicy[PolicyHolderToken]",
+      "FactClaims[ClaimKey]",
+      "FactClaims[IngestTimestamp]",
+      "FactClaims[AuditTs]",
+      "FactClaims[Attr02]",
+      "FactClaims[Attr01]",
+      "FactClaims[VatAmount]",
+      "FactClaims[ExcessAmount]",
+      "FactClaims[ClaimantPostcode]",
+      "FactClaims[FeeAmount]",
+      "FactClaims[BrokerCode]",
+      "FactClaims[SubCauseCode]",
+      "FactClaims[CauseCode]",
+      "FactClaims[RegionCode]",
+      "FactClaims[LoadBatchId]",
+      "FactClaims[AuditUser]",
+      "FactClaims[ChannelCode]",
+      "FactClaims[RowVersion]",
+      "FactClaims[IsDeleted]"
+    ],
+    "est_total_mb": 32.889,
+    "est_note": "ESTIMATE: dictionary + bit-packed index from synthetic data stats, not engine-measured",
+    "consumers": {
+      "reports": 3,
+      "passed": 3,
+      "failures": []
+    },
+    "unsupported": []
+  },
+  "after": {
+    "model": "trimmed",
+    "tables": 4,
+    "columns": 17,
+    "fact_columns": 7,
+    "measures": 16,
+    "broken_measures": {},
+    "unused_columns": [],
+    "est_total_mb": 1.535,
+    "est_note": "ESTIMATE: dictionary + bit-packed index from synthetic data stats, not engine-measured",
+    "consumers": {
+      "reports": 3,
+      "passed": 3,
+      "failures": []
+    },
+    "unsupported": []
+  },
+  "top_columns_before": [
+    {
+      "table": "FactClaims",
+      "column": "ClaimNarrative",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 7280000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "SourceRowHash",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 5840000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "AdjusterNote",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 3680000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ExternalClaimRef",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 3280000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "Attr03",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 3280000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "SourceFileName",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 2702240,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "LegacyClaimNo",
+      "dataType": "string",
+      "distinct": 40000,
+      "est_bytes": 1440000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "DimPolicy",
+      "column": "PolicyHolderToken",
+      "dataType": "string",
+      "distinct": 5000,
+      "est_bytes": 408125,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "ClaimKey",
+      "dataType": "int64",
+      "distinct": 40000,
+      "est_bytes": 400000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    },
+    {
+      "table": "FactClaims",
+      "column": "IngestTimestamp",
+      "dataType": "dateTime",
+      "distinct": 40000,
+      "est_bytes": 400000,
+      "used": false,
+      "usage": {
+        "measures": [],
+        "calculated_columns": [],
+        "relationships": [],
+        "roles": [],
+        "hierarchies": [],
+        "sort_by": [],
+        "visuals": [],
+        "model_objects": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[project]
+name = "smguard"
+version = "0.1.0"
+description = "Semantic model guard: analyze, trim and regression-test TMDL models (synthetic demo)"
+requires-python = ">=3.13"
+dependencies = ["duckdb", "pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"

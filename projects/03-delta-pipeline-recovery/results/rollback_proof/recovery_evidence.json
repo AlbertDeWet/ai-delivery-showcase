@@ -1,0 +1,3942 @@
+{
+  "run_id": "20261023200051757366-30766c",
+  "month": "2025-07",
+  "timings_s": {
+    "1_retention_check": 0.677,
+    "2_backup": 1.64,
+    "3_dry_run_verify": 0.926,
+    "4_restore": 0.485,
+    "5_live_verify": 1.127,
+    "6_rollback": 0.758
+  },
+  "current_version": 1,
+  "pre_incident_version": 0,
+  "incident_version": 1,
+  "incident_source": "history",
+  "retention": {
+    "incident_commit_utc": "2026-10-23T18:00:51.658000+00:00",
+    "retention": "7 days, 0:00:00",
+    "log_retention": "30 days, 0:00:00",
+    "file_horizon_utc": "2026-10-30T18:00:51.658000+00:00",
+    "log_horizon_utc": "2026-11-22T18:00:50.353000+00:00",
+    "binding_horizon": "file",
+    "vacuum_horizon_utc": "2026-10-30T18:00:51.658000+00:00",
+    "now_utc": "2026-10-23T18:00:52.408498+00:00",
+    "hours_remaining": 168.0,
+    "open": true
+  },
+  "journal": [
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "1_retention_check",
+      "at_utc": "2026-10-23T18:00:52.437341+00:00"
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "2_backup",
+      "at_utc": "2026-10-23T18:00:54.088092+00:00"
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "3_dry_run_verify",
+      "at_utc": "2026-10-23T18:00:55.084390+00:00"
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "4_restore_intent",
+      "at_utc": "2026-10-23T18:00:55.179864+00:00",
+      "batch_id": "7b0a78098445441bb8381d0d4e65b6b4",
+      "rows": 3634,
+      "version_before": 1
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "4_restore_committed",
+      "at_utc": "2026-10-23T18:00:55.560409+00:00",
+      "batch_id": "7b0a78098445441bb8381d0d4e65b6b4",
+      "version": 2
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "4_restore",
+      "at_utc": "2026-10-23T18:00:55.635417+00:00"
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "5_live_verify",
+      "at_utc": "2026-10-23T18:00:56.851459+00:00"
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "6_rollback_intent",
+      "at_utc": "2026-10-23T18:00:57.128046+00:00",
+      "to_version": 1
+    },
+    {
+      "run_id": "20261023200051757366-30766c",
+      "step": "6_rollback",
+      "at_utc": "2026-10-23T18:00:57.676145+00:00"
+    }
+  ],
+  "backup": {
+    "backup_path": "work/backups_r/gold_v1_20261023200052687334",
+    "files": 14,
+    "manifest_match": true,
+    "table_version": 1
+  },
+  "already_present_rows": 0,
+  "dry_run": [
+    {
+      "id": "V01",
+      "name": "retention window still open",
+      "passed": true,
+      "detail": 168.0
+    },
+    {
+      "id": "V02",
+      "name": "pre-incident version readable and all data files present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V03",
+      "name": "pre-incident version has the month; current month rows are a subset of it",
+      "passed": true,
+      "detail": {
+        "pre": 1817,
+        "current": 0
+      }
+    },
+    {
+      "id": "V04",
+      "name": "month after restore has exactly the pre-incident rows",
+      "passed": true,
+      "detail": {
+        "after": 1817,
+        "pre": 1817
+      }
+    },
+    {
+      "id": "V05",
+      "name": "schema unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V06",
+      "name": "no duplicate txn_id (case/whitespace normalised)",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "id": "V07",
+      "name": "no null keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V08",
+      "name": "other months untouched vs pre-incident",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V09",
+      "name": "restored month reconciles to the cent (406 cells)",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "id": "V10",
+      "name": "every entity x account cell reconciles to the cent (600 cells)",
+      "passed": true,
+      "detail": {
+        "breaks": 0,
+        "diff": "0.00"
+      }
+    },
+    {
+      "id": "V11",
+      "name": "row count equals control row count",
+      "passed": true,
+      "detail": {
+        "rows": 22459,
+        "control": 22459
+      }
+    },
+    {
+      "id": "V12",
+      "name": "backup sha256 intact and live table unchanged since backup",
+      "passed": true,
+      "detail": {
+        "backup_intact": true,
+        "live_equals_backup": true
+      }
+    }
+  ],
+  "batch_id": "7b0a78098445441bb8381d0d4e65b6b4",
+  "restored_rows": 3634,
+  "version_before_restore": 1,
+  "version_after_restore": 2,
+  "live_verify": [
+    {
+      "id": "V01",
+      "name": "retention window still open",
+      "passed": true,
+      "detail": 168.0
+    },
+    {
+      "id": "V02",
+      "name": "pre-incident version readable and all data files present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V03",
+      "name": "pre-incident version has the month; current month rows are a subset of it",
+      "passed": true,
+      "detail": {
+        "pre": 1817,
+        "current": 0
+      }
+    },
+    {
+      "id": "V04",
+      "name": "month after restore has exactly the pre-incident rows",
+      "passed": false,
+      "detail": {
+        "after": 3634,
+        "pre": 1817
+      }
+    },
+    {
+      "id": "V05",
+      "name": "schema unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V06",
+      "name": "no duplicate txn_id (case/whitespace normalised)",
+      "passed": false,
+      "detail": 1817
+    },
+    {
+      "id": "V07",
+      "name": "no null keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V08",
+      "name": "other months untouched vs pre-incident",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "id": "V09",
+      "name": "restored month reconciles to the cent (406 cells)",
+      "passed": false,
+      "detail": 406
+    },
+    {
+      "id": "V10",
+      "name": "every entity x account cell reconciles to the cent (600 cells)",
+      "passed": false,
+      "detail": {
+        "breaks": 406,
+        "diff": "1168667409.68"
+      }
+    },
+    {
+      "id": "V11",
+      "name": "row count equals control row count",
+      "passed": false,
+      "detail": {
+        "rows": 24276,
+        "control": 22459
+      }
+    },
+    {
+      "id": "V12",
+      "name": "backup sha256 intact",
+      "passed": true,
+      "detail": {
+        "backup_intact": true,
+        "live_equals_backup": false
+      }
+    }
+  ],
+  "first_verify_pass_s": null,
+  "reconciliation": {
+    "cells": 600,
+    "breaks": [
+      {
+        "entity": "CI-E01",
+        "account": "4010",
+        "gold_rows": 35,
+        "summary_rows": 29,
+        "gold_usd": "16348645.37",
+        "summary_usd": "15292386.62",
+        "diff_usd": "1056258.75"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4030",
+        "gold_rows": 43,
+        "summary_rows": 38,
+        "gold_usd": "27640539.85",
+        "summary_usd": "24409682.38",
+        "diff_usd": "3230857.47"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4040",
+        "gold_rows": 35,
+        "summary_rows": 33,
+        "gold_usd": "27642571.45",
+        "summary_usd": "27758491.61",
+        "diff_usd": "-115920.16"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4050",
+        "gold_rows": 48,
+        "summary_rows": 40,
+        "gold_usd": "39625963.16",
+        "summary_usd": "33351011.79",
+        "diff_usd": "6274951.37"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4060",
+        "gold_rows": 45,
+        "summary_rows": 41,
+        "gold_usd": "33166328.54",
+        "summary_usd": "33904863.62",
+        "diff_usd": "-738535.08"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4070",
+        "gold_rows": 30,
+        "summary_rows": 28,
+        "gold_usd": "20582103.84",
+        "summary_usd": "18811184.79",
+        "diff_usd": "1770919.05"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4080",
+        "gold_rows": 36,
+        "summary_rows": 29,
+        "gold_usd": "24102932.20",
+        "summary_usd": "18586545.21",
+        "diff_usd": "5516386.99"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4090",
+        "gold_rows": 52,
+        "summary_rows": 48,
+        "gold_usd": "44791951.00",
+        "summary_usd": "41912562.27",
+        "diff_usd": "2879388.73"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4120",
+        "gold_rows": 54,
+        "summary_rows": 52,
+        "gold_usd": "33758362.57",
+        "summary_usd": "32432790.36",
+        "diff_usd": "1325572.21"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4140",
+        "gold_rows": 48,
+        "summary_rows": 42,
+        "gold_usd": "36970183.29",
+        "summary_usd": "34790943.01",
+        "diff_usd": "2179240.28"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4150",
+        "gold_rows": 48,
+        "summary_rows": 41,
+        "gold_usd": "44324410.48",
+        "summary_usd": "36955904.91",
+        "diff_usd": "7368505.57"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4160",
+        "gold_rows": 40,
+        "summary_rows": 39,
+        "gold_usd": "33498733.45",
+        "summary_usd": "33539862.75",
+        "diff_usd": "-41129.30"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4170",
+        "gold_rows": 37,
+        "summary_rows": 36,
+        "gold_usd": "35323732.85",
+        "summary_usd": "35338149.68",
+        "diff_usd": "-14416.83"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4180",
+        "gold_rows": 41,
+        "summary_rows": 36,
+        "gold_usd": "31702546.75",
+        "summary_usd": "26083570.27",
+        "diff_usd": "5618976.48"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4190",
+        "gold_rows": 36,
+        "summary_rows": 28,
+        "gold_usd": "21077524.63",
+        "summary_usd": "15522761.89",
+        "diff_usd": "5554762.74"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4230",
+        "gold_rows": 43,
+        "summary_rows": 42,
+        "gold_usd": "30317116.73",
+        "summary_usd": "28405243.59",
+        "diff_usd": "1911873.14"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4240",
+        "gold_rows": 45,
+        "summary_rows": 42,
+        "gold_usd": "32064191.86",
+        "summary_usd": "31012836.85",
+        "diff_usd": "1051355.01"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4270",
+        "gold_rows": 22,
+        "summary_rows": 18,
+        "gold_usd": "17959744.88",
+        "summary_usd": "14110946.11",
+        "diff_usd": "3848798.77"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4280",
+        "gold_rows": 42,
+        "summary_rows": 38,
+        "gold_usd": "33116288.70",
+        "summary_usd": "30916407.05",
+        "diff_usd": "2199881.65"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4290",
+        "gold_rows": 27,
+        "summary_rows": 25,
+        "gold_usd": "19374647.71",
+        "summary_usd": "18407074.63",
+        "diff_usd": "967573.08"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4310",
+        "gold_rows": 44,
+        "summary_rows": 40,
+        "gold_usd": "31779475.40",
+        "summary_usd": "29249464.04",
+        "diff_usd": "2530011.36"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4320",
+        "gold_rows": 39,
+        "summary_rows": 36,
+        "gold_usd": "34205044.27",
+        "summary_usd": "33975068.77",
+        "diff_usd": "229975.50"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4330",
+        "gold_rows": 44,
+        "summary_rows": 36,
+        "gold_usd": "32686847.64",
+        "summary_usd": "26691966.68",
+        "diff_usd": "5994880.96"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4340",
+        "gold_rows": 49,
+        "summary_rows": 43,
+        "gold_usd": "27554585.16",
+        "summary_usd": "25870984.50",
+        "diff_usd": "1683600.66"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4350",
+        "gold_rows": 52,
+        "summary_rows": 46,
+        "gold_usd": "44224616.36",
+        "summary_usd": "38055608.02",
+        "diff_usd": "6169008.34"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4380",
+        "gold_rows": 56,
+        "summary_rows": 48,
+        "gold_usd": "37141141.63",
+        "summary_usd": "34417293.02",
+        "diff_usd": "2723848.61"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4410",
+        "gold_rows": 43,
+        "summary_rows": 35,
+        "gold_usd": "34629321.02",
+        "summary_usd": "28420950.93",
+        "diff_usd": "6208370.09"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4420",
+        "gold_rows": 39,
+        "summary_rows": 32,
+        "gold_usd": "28107783.70",
+        "summary_usd": "22547368.25",
+        "diff_usd": "5560415.45"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4430",
+        "gold_rows": 35,
+        "summary_rows": 30,
+        "gold_usd": "25049544.07",
+        "summary_usd": "20269658.97",
+        "diff_usd": "4779885.10"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4440",
+        "gold_rows": 46,
+        "summary_rows": 42,
+        "gold_usd": "30287813.24",
+        "summary_usd": "26823792.68",
+        "diff_usd": "3464020.56"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4470",
+        "gold_rows": 34,
+        "summary_rows": 28,
+        "gold_usd": "23350351.80",
+        "summary_usd": "18465171.41",
+        "diff_usd": "4885180.39"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4480",
+        "gold_rows": 55,
+        "summary_rows": 47,
+        "gold_usd": "33133306.82",
+        "summary_usd": "28646247.77",
+        "diff_usd": "4487059.05"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4490",
+        "gold_rows": 23,
+        "summary_rows": 18,
+        "gold_usd": "21565069.11",
+        "summary_usd": "17153413.25",
+        "diff_usd": "4411655.86"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4500",
+        "gold_rows": 40,
+        "summary_rows": 39,
+        "gold_usd": "24778027.33",
+        "summary_usd": "25209551.67",
+        "diff_usd": "-431524.34"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4510",
+        "gold_rows": 28,
+        "summary_rows": 26,
+        "gold_usd": "13141852.56",
+        "summary_usd": "12434049.58",
+        "diff_usd": "707802.98"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4520",
+        "gold_rows": 51,
+        "summary_rows": 46,
+        "gold_usd": "39377650.43",
+        "summary_usd": "32867242.15",
+        "diff_usd": "6510408.28"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4530",
+        "gold_rows": 52,
+        "summary_rows": 44,
+        "gold_usd": "36261796.47",
+        "summary_usd": "32398085.95",
+        "diff_usd": "3863710.52"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4550",
+        "gold_rows": 26,
+        "summary_rows": 22,
+        "gold_usd": "17799022.91",
+        "summary_usd": "14525699.17",
+        "diff_usd": "3273323.74"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4560",
+        "gold_rows": 38,
+        "summary_rows": 36,
+        "gold_usd": "28316263.55",
+        "summary_usd": "25382226.44",
+        "diff_usd": "2934037.11"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4570",
+        "gold_rows": 25,
+        "summary_rows": 21,
+        "gold_usd": "12901335.06",
+        "summary_usd": "10927209.41",
+        "diff_usd": "1974125.65"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4580",
+        "gold_rows": 72,
+        "summary_rows": 64,
+        "gold_usd": "43963974.85",
+        "summary_usd": "40239595.08",
+        "diff_usd": "3724379.77"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4600",
+        "gold_rows": 39,
+        "summary_rows": 38,
+        "gold_usd": "29779078.41",
+        "summary_usd": "27884194.95",
+        "diff_usd": "1894883.46"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4610",
+        "gold_rows": 33,
+        "summary_rows": 32,
+        "gold_usd": "29556833.22",
+        "summary_usd": "28378861.78",
+        "diff_usd": "1177971.44"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4620",
+        "gold_rows": 46,
+        "summary_rows": 38,
+        "gold_usd": "36096687.05",
+        "summary_usd": "32083221.11",
+        "diff_usd": "4013465.94"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4670",
+        "gold_rows": 45,
+        "summary_rows": 42,
+        "gold_usd": "27402014.12",
+        "summary_usd": "25804827.66",
+        "diff_usd": "1597186.46"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4710",
+        "gold_rows": 34,
+        "summary_rows": 27,
+        "gold_usd": "22656584.69",
+        "summary_usd": "20068539.48",
+        "diff_usd": "2588045.21"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4720",
+        "gold_rows": 34,
+        "summary_rows": 33,
+        "gold_usd": "25424318.47",
+        "summary_usd": "23450569.31",
+        "diff_usd": "1973749.16"
+      },
+      {
+        "entity": "CI-E01",
+        "account": "4730",
+        "gold_rows": 51,
+        "summary_rows": 48,
+        "gold_usd": "46802699.13",
+        "summary_usd": "43069616.73",
+        "diff_usd": "3733082.40"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4000",
+        "gold_rows": 30,
+        "summary_rows": 27,
+        "gold_usd": "20770492.01",
+        "summary_usd": "19494082.59",
+        "diff_usd": "1276409.42"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4010",
+        "gold_rows": 48,
+        "summary_rows": 46,
+        "gold_usd": "33422634.75",
+        "summary_usd": "30938081.78",
+        "diff_usd": "2484552.97"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4030",
+        "gold_rows": 33,
+        "summary_rows": 31,
+        "gold_usd": "23850161.14",
+        "summary_usd": "21414014.82",
+        "diff_usd": "2436146.32"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4040",
+        "gold_rows": 40,
+        "summary_rows": 37,
+        "gold_usd": "34784117.58",
+        "summary_usd": "30841939.12",
+        "diff_usd": "3942178.46"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4070",
+        "gold_rows": 28,
+        "summary_rows": 26,
+        "gold_usd": "23319323.31",
+        "summary_usd": "20984076.04",
+        "diff_usd": "2335247.27"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4080",
+        "gold_rows": 44,
+        "summary_rows": 42,
+        "gold_usd": "32074507.00",
+        "summary_usd": "32115779.94",
+        "diff_usd": "-41272.94"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4090",
+        "gold_rows": 50,
+        "summary_rows": 45,
+        "gold_usd": "40980371.24",
+        "summary_usd": "37635827.52",
+        "diff_usd": "3344543.72"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4100",
+        "gold_rows": 35,
+        "summary_rows": 33,
+        "gold_usd": "29993549.76",
+        "summary_usd": "27950144.44",
+        "diff_usd": "2043405.32"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4110",
+        "gold_rows": 32,
+        "summary_rows": 26,
+        "gold_usd": "20707026.88",
+        "summary_usd": "16456051.40",
+        "diff_usd": "4250975.48"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4120",
+        "gold_rows": 49,
+        "summary_rows": 46,
+        "gold_usd": "43841899.70",
+        "summary_usd": "41587040.99",
+        "diff_usd": "2254858.71"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4140",
+        "gold_rows": 30,
+        "summary_rows": 27,
+        "gold_usd": "27459184.81",
+        "summary_usd": "23797510.23",
+        "diff_usd": "3661674.58"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4150",
+        "gold_rows": 37,
+        "summary_rows": 31,
+        "gold_usd": "40879611.76",
+        "summary_usd": "31618548.47",
+        "diff_usd": "9261063.29"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4160",
+        "gold_rows": 35,
+        "summary_rows": 30,
+        "gold_usd": "23136263.17",
+        "summary_usd": "21636979.72",
+        "diff_usd": "1499283.45"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4170",
+        "gold_rows": 40,
+        "summary_rows": 32,
+        "gold_usd": "25435055.76",
+        "summary_usd": "20474313.43",
+        "diff_usd": "4960742.33"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4190",
+        "gold_rows": 33,
+        "summary_rows": 27,
+        "gold_usd": "25300525.04",
+        "summary_usd": "21781048.37",
+        "diff_usd": "3519476.67"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4210",
+        "gold_rows": 46,
+        "summary_rows": 41,
+        "gold_usd": "37774880.62",
+        "summary_usd": "35817241.01",
+        "diff_usd": "1957639.61"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4220",
+        "gold_rows": 58,
+        "summary_rows": 50,
+        "gold_usd": "38591889.30",
+        "summary_usd": "34885697.40",
+        "diff_usd": "3706191.90"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4230",
+        "gold_rows": 56,
+        "summary_rows": 51,
+        "gold_usd": "52748800.24",
+        "summary_usd": "45207091.43",
+        "diff_usd": "7541708.81"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4250",
+        "gold_rows": 25,
+        "summary_rows": 24,
+        "gold_usd": "20480413.04",
+        "summary_usd": "19339095.62",
+        "diff_usd": "1141317.42"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4260",
+        "gold_rows": 29,
+        "summary_rows": 22,
+        "gold_usd": "21428805.33",
+        "summary_usd": "16648836.23",
+        "diff_usd": "4779969.10"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4300",
+        "gold_rows": 44,
+        "summary_rows": 41,
+        "gold_usd": "34805907.65",
+        "summary_usd": "34738950.05",
+        "diff_usd": "66957.60"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4340",
+        "gold_rows": 28,
+        "summary_rows": 27,
+        "gold_usd": "29633208.86",
+        "summary_usd": "29702510.30",
+        "diff_usd": "-69301.44"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4350",
+        "gold_rows": 46,
+        "summary_rows": 45,
+        "gold_usd": "43697563.35",
+        "summary_usd": "43568784.65",
+        "diff_usd": "128778.70"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4360",
+        "gold_rows": 45,
+        "summary_rows": 39,
+        "gold_usd": "26448924.94",
+        "summary_usd": "24331936.31",
+        "diff_usd": "2116988.63"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4380",
+        "gold_rows": 46,
+        "summary_rows": 39,
+        "gold_usd": "30540371.75",
+        "summary_usd": "28062452.66",
+        "diff_usd": "2477919.09"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4400",
+        "gold_rows": 45,
+        "summary_rows": 43,
+        "gold_usd": "37602518.80",
+        "summary_usd": "35160538.31",
+        "diff_usd": "2441980.49"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4410",
+        "gold_rows": 37,
+        "summary_rows": 33,
+        "gold_usd": "21266213.88",
+        "summary_usd": "20923511.72",
+        "diff_usd": "342702.16"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4420",
+        "gold_rows": 66,
+        "summary_rows": 60,
+        "gold_usd": "65731291.54",
+        "summary_usd": "59472587.36",
+        "diff_usd": "6258704.18"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4430",
+        "gold_rows": 53,
+        "summary_rows": 50,
+        "gold_usd": "47737063.22",
+        "summary_usd": "45858922.43",
+        "diff_usd": "1878140.79"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4440",
+        "gold_rows": 53,
+        "summary_rows": 50,
+        "gold_usd": "39788338.57",
+        "summary_usd": "37622284.23",
+        "diff_usd": "2166054.34"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4470",
+        "gold_rows": 50,
+        "summary_rows": 43,
+        "gold_usd": "44768010.77",
+        "summary_usd": "39545939.02",
+        "diff_usd": "5222071.75"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4480",
+        "gold_rows": 39,
+        "summary_rows": 33,
+        "gold_usd": "32731204.17",
+        "summary_usd": "26843305.70",
+        "diff_usd": "5887898.47"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4490",
+        "gold_rows": 45,
+        "summary_rows": 43,
+        "gold_usd": "38696502.95",
+        "summary_usd": "35514244.24",
+        "diff_usd": "3182258.71"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4500",
+        "gold_rows": 43,
+        "summary_rows": 38,
+        "gold_usd": "36460726.83",
+        "summary_usd": "34751530.71",
+        "diff_usd": "1709196.12"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4510",
+        "gold_rows": 64,
+        "summary_rows": 62,
+        "gold_usd": "43982751.84",
+        "summary_usd": "43999484.83",
+        "diff_usd": "-16732.99"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4520",
+        "gold_rows": 43,
+        "summary_rows": 40,
+        "gold_usd": "29028989.75",
+        "summary_usd": "28447700.73",
+        "diff_usd": "581289.02"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4530",
+        "gold_rows": 29,
+        "summary_rows": 23,
+        "gold_usd": "28650934.88",
+        "summary_usd": "21752429.31",
+        "diff_usd": "6898505.57"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4550",
+        "gold_rows": 40,
+        "summary_rows": 36,
+        "gold_usd": "32240279.89",
+        "summary_usd": "27583086.45",
+        "diff_usd": "4657193.44"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4560",
+        "gold_rows": 47,
+        "summary_rows": 41,
+        "gold_usd": "37871985.35",
+        "summary_usd": "33851010.71",
+        "diff_usd": "4020974.64"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4570",
+        "gold_rows": 42,
+        "summary_rows": 34,
+        "gold_usd": "27969855.72",
+        "summary_usd": "22988580.26",
+        "diff_usd": "4981275.46"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4580",
+        "gold_rows": 47,
+        "summary_rows": 41,
+        "gold_usd": "35376238.87",
+        "summary_usd": "29570125.16",
+        "diff_usd": "5806113.71"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4590",
+        "gold_rows": 48,
+        "summary_rows": 41,
+        "gold_usd": "40906269.74",
+        "summary_usd": "36286138.48",
+        "diff_usd": "4620131.26"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4610",
+        "gold_rows": 48,
+        "summary_rows": 43,
+        "gold_usd": "32918724.24",
+        "summary_usd": "32252284.07",
+        "diff_usd": "666440.17"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4620",
+        "gold_rows": 28,
+        "summary_rows": 24,
+        "gold_usd": "14786256.31",
+        "summary_usd": "11944316.72",
+        "diff_usd": "2841939.59"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4640",
+        "gold_rows": 38,
+        "summary_rows": 34,
+        "gold_usd": "33643365.51",
+        "summary_usd": "28033348.72",
+        "diff_usd": "5610016.79"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4660",
+        "gold_rows": 61,
+        "summary_rows": 54,
+        "gold_usd": "55437664.72",
+        "summary_usd": "48054186.49",
+        "diff_usd": "7383478.23"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4670",
+        "gold_rows": 56,
+        "summary_rows": 50,
+        "gold_usd": "43015444.00",
+        "summary_usd": "35600873.88",
+        "diff_usd": "7414570.12"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4690",
+        "gold_rows": 48,
+        "summary_rows": 45,
+        "gold_usd": "40121804.05",
+        "summary_usd": "36599868.26",
+        "diff_usd": "3521935.79"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4700",
+        "gold_rows": 35,
+        "summary_rows": 30,
+        "gold_usd": "30059264.57",
+        "summary_usd": "25883161.62",
+        "diff_usd": "4176102.95"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4710",
+        "gold_rows": 53,
+        "summary_rows": 51,
+        "gold_usd": "35927998.82",
+        "summary_usd": "35092695.74",
+        "diff_usd": "835303.08"
+      },
+      {
+        "entity": "CI-E02",
+        "account": "4720",
+        "gold_rows": 31,
+        "summary_rows": 23,
+        "gold_usd": "30899658.86",
+        "summary_usd": "23020925.66",
+        "diff_usd": "7878733.20"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4010",
+        "gold_rows": 38,
+        "summary_rows": 36,
+        "gold_usd": "32912278.58",
+        "summary_usd": "31125852.00",
+        "diff_usd": "1786426.58"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4020",
+        "gold_rows": 62,
+        "summary_rows": 54,
+        "gold_usd": "68612521.38",
+        "summary_usd": "60214768.53",
+        "diff_usd": "8397752.85"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4060",
+        "gold_rows": 50,
+        "summary_rows": 44,
+        "gold_usd": "49309934.44",
+        "summary_usd": "44698507.90",
+        "diff_usd": "4611426.54"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4070",
+        "gold_rows": 36,
+        "summary_rows": 34,
+        "gold_usd": "32564831.59",
+        "summary_usd": "30803202.94",
+        "diff_usd": "1761628.65"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4080",
+        "gold_rows": 34,
+        "summary_rows": 30,
+        "gold_usd": "39208200.25",
+        "summary_usd": "33911893.55",
+        "diff_usd": "5296306.70"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4100",
+        "gold_rows": 32,
+        "summary_rows": 29,
+        "gold_usd": "31265502.24",
+        "summary_usd": "27791639.16",
+        "diff_usd": "3473863.08"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4110",
+        "gold_rows": 27,
+        "summary_rows": 20,
+        "gold_usd": "29153936.55",
+        "summary_usd": "22352624.77",
+        "diff_usd": "6801311.78"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4120",
+        "gold_rows": 49,
+        "summary_rows": 41,
+        "gold_usd": "52356644.56",
+        "summary_usd": "42765333.90",
+        "diff_usd": "9591310.66"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4130",
+        "gold_rows": 49,
+        "summary_rows": 47,
+        "gold_usd": "52698662.43",
+        "summary_usd": "50425211.80",
+        "diff_usd": "2273450.63"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4140",
+        "gold_rows": 38,
+        "summary_rows": 37,
+        "gold_usd": "34675863.73",
+        "summary_usd": "34981169.43",
+        "diff_usd": "-305305.70"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4150",
+        "gold_rows": 52,
+        "summary_rows": 48,
+        "gold_usd": "51236104.85",
+        "summary_usd": "46997963.63",
+        "diff_usd": "4238141.22"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4170",
+        "gold_rows": 61,
+        "summary_rows": 53,
+        "gold_usd": "40681417.43",
+        "summary_usd": "35324524.35",
+        "diff_usd": "5356893.08"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4180",
+        "gold_rows": 41,
+        "summary_rows": 39,
+        "gold_usd": "43795820.09",
+        "summary_usd": "41611133.05",
+        "diff_usd": "2184687.04"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4190",
+        "gold_rows": 44,
+        "summary_rows": 41,
+        "gold_usd": "35465340.77",
+        "summary_usd": "34482537.50",
+        "diff_usd": "982803.27"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4200",
+        "gold_rows": 37,
+        "summary_rows": 33,
+        "gold_usd": "33732953.09",
+        "summary_usd": "29431135.73",
+        "diff_usd": "4301817.36"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4210",
+        "gold_rows": 45,
+        "summary_rows": 38,
+        "gold_usd": "42921290.60",
+        "summary_usd": "37496281.06",
+        "diff_usd": "5425009.54"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4230",
+        "gold_rows": 66,
+        "summary_rows": 59,
+        "gold_usd": "72086433.03",
+        "summary_usd": "67023654.51",
+        "diff_usd": "5062778.52"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4240",
+        "gold_rows": 62,
+        "summary_rows": 57,
+        "gold_usd": "58231060.75",
+        "summary_usd": "53159515.70",
+        "diff_usd": "5071545.05"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4250",
+        "gold_rows": 46,
+        "summary_rows": 39,
+        "gold_usd": "36455952.38",
+        "summary_usd": "30726427.68",
+        "diff_usd": "5729524.70"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4260",
+        "gold_rows": 42,
+        "summary_rows": 37,
+        "gold_usd": "40814828.58",
+        "summary_usd": "37103676.65",
+        "diff_usd": "3711151.93"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4270",
+        "gold_rows": 59,
+        "summary_rows": 51,
+        "gold_usd": "49516184.58",
+        "summary_usd": "42908719.00",
+        "diff_usd": "6607465.58"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4280",
+        "gold_rows": 33,
+        "summary_rows": 30,
+        "gold_usd": "25679993.52",
+        "summary_usd": "21650556.59",
+        "diff_usd": "4029436.93"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4310",
+        "gold_rows": 34,
+        "summary_rows": 32,
+        "gold_usd": "30486785.08",
+        "summary_usd": "30250343.47",
+        "diff_usd": "236441.61"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4320",
+        "gold_rows": 45,
+        "summary_rows": 43,
+        "gold_usd": "34166333.49",
+        "summary_usd": "33742678.94",
+        "diff_usd": "423654.55"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4330",
+        "gold_rows": 24,
+        "summary_rows": 23,
+        "gold_usd": "23553219.92",
+        "summary_usd": "22286764.51",
+        "diff_usd": "1266455.41"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4340",
+        "gold_rows": 13,
+        "summary_rows": 12,
+        "gold_usd": "17725458.43",
+        "summary_usd": "15550622.07",
+        "diff_usd": "2174836.36"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4350",
+        "gold_rows": 55,
+        "summary_rows": 49,
+        "gold_usd": "51800847.74",
+        "summary_usd": "44401008.46",
+        "diff_usd": "7399839.28"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4360",
+        "gold_rows": 56,
+        "summary_rows": 53,
+        "gold_usd": "62840457.17",
+        "summary_usd": "60597184.35",
+        "diff_usd": "2243272.82"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4370",
+        "gold_rows": 25,
+        "summary_rows": 22,
+        "gold_usd": "15977657.24",
+        "summary_usd": "13633822.65",
+        "diff_usd": "2343834.59"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4380",
+        "gold_rows": 35,
+        "summary_rows": 34,
+        "gold_usd": "30767224.17",
+        "summary_usd": "30003094.93",
+        "diff_usd": "764129.24"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4400",
+        "gold_rows": 21,
+        "summary_rows": 19,
+        "gold_usd": "23882521.97",
+        "summary_usd": "21768987.75",
+        "diff_usd": "2113534.22"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4420",
+        "gold_rows": 47,
+        "summary_rows": 44,
+        "gold_usd": "50147423.80",
+        "summary_usd": "45990137.99",
+        "diff_usd": "4157285.81"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4440",
+        "gold_rows": 53,
+        "summary_rows": 50,
+        "gold_usd": "41823835.70",
+        "summary_usd": "39640427.61",
+        "diff_usd": "2183408.09"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4450",
+        "gold_rows": 49,
+        "summary_rows": 45,
+        "gold_usd": "43394289.97",
+        "summary_usd": "36170737.08",
+        "diff_usd": "7223552.89"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4470",
+        "gold_rows": 52,
+        "summary_rows": 44,
+        "gold_usd": "62796406.30",
+        "summary_usd": "51392643.14",
+        "diff_usd": "11403763.16"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4480",
+        "gold_rows": 40,
+        "summary_rows": 37,
+        "gold_usd": "39793242.44",
+        "summary_usd": "36577885.91",
+        "diff_usd": "3215356.53"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4500",
+        "gold_rows": 28,
+        "summary_rows": 21,
+        "gold_usd": "21768778.21",
+        "summary_usd": "15107519.82",
+        "diff_usd": "6661258.39"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4510",
+        "gold_rows": 52,
+        "summary_rows": 46,
+        "gold_usd": "58284928.24",
+        "summary_usd": "50719493.69",
+        "diff_usd": "7565434.55"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4520",
+        "gold_rows": 28,
+        "summary_rows": 27,
+        "gold_usd": "32315837.94",
+        "summary_usd": "31892709.95",
+        "diff_usd": "423127.99"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4530",
+        "gold_rows": 49,
+        "summary_rows": 43,
+        "gold_usd": "46913400.36",
+        "summary_usd": "41245493.98",
+        "diff_usd": "5667906.38"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4540",
+        "gold_rows": 41,
+        "summary_rows": 37,
+        "gold_usd": "43366017.58",
+        "summary_usd": "38026028.99",
+        "diff_usd": "5339988.59"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4550",
+        "gold_rows": 32,
+        "summary_rows": 31,
+        "gold_usd": "30832641.48",
+        "summary_usd": "30334664.19",
+        "diff_usd": "497977.29"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4560",
+        "gold_rows": 53,
+        "summary_rows": 46,
+        "gold_usd": "53972815.96",
+        "summary_usd": "45704937.97",
+        "diff_usd": "8267877.99"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4570",
+        "gold_rows": 43,
+        "summary_rows": 37,
+        "gold_usd": "34865719.34",
+        "summary_usd": "32537821.43",
+        "diff_usd": "2327897.91"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4580",
+        "gold_rows": 40,
+        "summary_rows": 35,
+        "gold_usd": "20601581.53",
+        "summary_usd": "20476795.50",
+        "diff_usd": "124786.03"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4590",
+        "gold_rows": 34,
+        "summary_rows": 31,
+        "gold_usd": "37623418.25",
+        "summary_usd": "34978032.17",
+        "diff_usd": "2645386.08"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4620",
+        "gold_rows": 25,
+        "summary_rows": 23,
+        "gold_usd": "18806825.36",
+        "summary_usd": "18623319.89",
+        "diff_usd": "183505.47"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4630",
+        "gold_rows": 44,
+        "summary_rows": 37,
+        "gold_usd": "43242958.41",
+        "summary_usd": "36022067.23",
+        "diff_usd": "7220891.18"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4640",
+        "gold_rows": 38,
+        "summary_rows": 37,
+        "gold_usd": "30437926.66",
+        "summary_usd": "30860720.73",
+        "diff_usd": "-422794.07"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4650",
+        "gold_rows": 41,
+        "summary_rows": 39,
+        "gold_usd": "37744188.76",
+        "summary_usd": "33753611.21",
+        "diff_usd": "3990577.55"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4660",
+        "gold_rows": 44,
+        "summary_rows": 39,
+        "gold_usd": "33960814.44",
+        "summary_usd": "33353406.47",
+        "diff_usd": "607407.97"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4680",
+        "gold_rows": 38,
+        "summary_rows": 37,
+        "gold_usd": "37628351.67",
+        "summary_usd": "36821070.09",
+        "diff_usd": "807281.58"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4690",
+        "gold_rows": 43,
+        "summary_rows": 38,
+        "gold_usd": "46463027.60",
+        "summary_usd": "39274110.08",
+        "diff_usd": "7188917.52"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4700",
+        "gold_rows": 72,
+        "summary_rows": 65,
+        "gold_usd": "69582073.06",
+        "summary_usd": "62797109.22",
+        "diff_usd": "6784963.84"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4710",
+        "gold_rows": 41,
+        "summary_rows": 40,
+        "gold_usd": "39254514.60",
+        "summary_usd": "38659727.84",
+        "diff_usd": "594786.76"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4720",
+        "gold_rows": 36,
+        "summary_rows": 34,
+        "gold_usd": "39363593.35",
+        "summary_usd": "35459729.06",
+        "diff_usd": "3903864.29"
+      },
+      {
+        "entity": "CI-E03",
+        "account": "4730",
+        "gold_rows": 17,
+        "summary_rows": 16,
+        "gold_usd": "16014926.42",
+        "summary_usd": "13979345.50",
+        "diff_usd": "2035580.92"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4000",
+        "gold_rows": 49,
+        "summary_rows": 48,
+        "gold_usd": "39840883.20",
+        "summary_usd": "40159261.19",
+        "diff_usd": "-318377.99"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4020",
+        "gold_rows": 49,
+        "summary_rows": 44,
+        "gold_usd": "41940374.89",
+        "summary_usd": "36263435.85",
+        "diff_usd": "5676939.04"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4040",
+        "gold_rows": 51,
+        "summary_rows": 50,
+        "gold_usd": "40415733.76",
+        "summary_usd": "39997253.00",
+        "diff_usd": "418480.76"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4050",
+        "gold_rows": 53,
+        "summary_rows": 50,
+        "gold_usd": "34140047.21",
+        "summary_usd": "32670060.40",
+        "diff_usd": "1469986.81"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4060",
+        "gold_rows": 45,
+        "summary_rows": 37,
+        "gold_usd": "23177330.80",
+        "summary_usd": "19069960.40",
+        "diff_usd": "4107370.40"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4070",
+        "gold_rows": 32,
+        "summary_rows": 29,
+        "gold_usd": "28221980.99",
+        "summary_usd": "23391212.20",
+        "diff_usd": "4830768.79"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4090",
+        "gold_rows": 43,
+        "summary_rows": 35,
+        "gold_usd": "44607970.20",
+        "summary_usd": "36266367.63",
+        "diff_usd": "8341602.57"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4100",
+        "gold_rows": 51,
+        "summary_rows": 43,
+        "gold_usd": "40257519.04",
+        "summary_usd": "33782033.02",
+        "diff_usd": "6475486.02"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4130",
+        "gold_rows": 58,
+        "summary_rows": 52,
+        "gold_usd": "43522190.23",
+        "summary_usd": "38241780.96",
+        "diff_usd": "5280409.27"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4140",
+        "gold_rows": 51,
+        "summary_rows": 46,
+        "gold_usd": "40963518.44",
+        "summary_usd": "36706782.68",
+        "diff_usd": "4256735.76"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4150",
+        "gold_rows": 37,
+        "summary_rows": 36,
+        "gold_usd": "31916389.79",
+        "summary_usd": "31684624.91",
+        "diff_usd": "231764.88"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4160",
+        "gold_rows": 48,
+        "summary_rows": 40,
+        "gold_usd": "36740409.80",
+        "summary_usd": "30643394.54",
+        "diff_usd": "6097015.26"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4170",
+        "gold_rows": 24,
+        "summary_rows": 22,
+        "gold_usd": "14667364.96",
+        "summary_usd": "13456653.80",
+        "diff_usd": "1210711.16"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4190",
+        "gold_rows": 39,
+        "summary_rows": 37,
+        "gold_usd": "26826831.42",
+        "summary_usd": "25731124.72",
+        "diff_usd": "1095706.70"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4220",
+        "gold_rows": 40,
+        "summary_rows": 36,
+        "gold_usd": "29019036.49",
+        "summary_usd": "25628173.24",
+        "diff_usd": "3390863.25"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4230",
+        "gold_rows": 40,
+        "summary_rows": 37,
+        "gold_usd": "42414847.99",
+        "summary_usd": "39690497.78",
+        "diff_usd": "2724350.21"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4240",
+        "gold_rows": 59,
+        "summary_rows": 51,
+        "gold_usd": "52804473.92",
+        "summary_usd": "43941365.19",
+        "diff_usd": "8863108.73"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4270",
+        "gold_rows": 56,
+        "summary_rows": 52,
+        "gold_usd": "40962326.65",
+        "summary_usd": "38448896.71",
+        "diff_usd": "2513429.94"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4280",
+        "gold_rows": 28,
+        "summary_rows": 27,
+        "gold_usd": "19872609.62",
+        "summary_usd": "17857095.68",
+        "diff_usd": "2015513.94"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4290",
+        "gold_rows": 44,
+        "summary_rows": 43,
+        "gold_usd": "26119135.18",
+        "summary_usd": "24408104.14",
+        "diff_usd": "1711031.04"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4300",
+        "gold_rows": 41,
+        "summary_rows": 37,
+        "gold_usd": "30365285.11",
+        "summary_usd": "29288400.03",
+        "diff_usd": "1076885.08"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4310",
+        "gold_rows": 47,
+        "summary_rows": 44,
+        "gold_usd": "35568502.93",
+        "summary_usd": "33420313.16",
+        "diff_usd": "2148189.77"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4320",
+        "gold_rows": 54,
+        "summary_rows": 51,
+        "gold_usd": "39540420.64",
+        "summary_usd": "35307226.68",
+        "diff_usd": "4233193.96"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4340",
+        "gold_rows": 30,
+        "summary_rows": 25,
+        "gold_usd": "20963581.92",
+        "summary_usd": "16884384.85",
+        "diff_usd": "4079197.07"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4350",
+        "gold_rows": 44,
+        "summary_rows": 37,
+        "gold_usd": "30642864.32",
+        "summary_usd": "24998055.85",
+        "diff_usd": "5644808.47"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4360",
+        "gold_rows": 47,
+        "summary_rows": 39,
+        "gold_usd": "34650423.24",
+        "summary_usd": "27721106.87",
+        "diff_usd": "6929316.37"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4390",
+        "gold_rows": 59,
+        "summary_rows": 53,
+        "gold_usd": "43424220.71",
+        "summary_usd": "39342551.40",
+        "diff_usd": "4081669.31"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4400",
+        "gold_rows": 65,
+        "summary_rows": 63,
+        "gold_usd": "43525733.71",
+        "summary_usd": "41642258.58",
+        "diff_usd": "1883475.13"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4410",
+        "gold_rows": 42,
+        "summary_rows": 39,
+        "gold_usd": "29594710.41",
+        "summary_usd": "29875248.13",
+        "diff_usd": "-280537.72"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4420",
+        "gold_rows": 51,
+        "summary_rows": 49,
+        "gold_usd": "43811613.82",
+        "summary_usd": "40033031.47",
+        "diff_usd": "3778582.35"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4450",
+        "gold_rows": 41,
+        "summary_rows": 39,
+        "gold_usd": "27946838.86",
+        "summary_usd": "25346669.61",
+        "diff_usd": "2600169.25"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4460",
+        "gold_rows": 50,
+        "summary_rows": 46,
+        "gold_usd": "42712875.24",
+        "summary_usd": "38978171.44",
+        "diff_usd": "3734703.80"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4470",
+        "gold_rows": 28,
+        "summary_rows": 25,
+        "gold_usd": "25563082.34",
+        "summary_usd": "20490531.46",
+        "diff_usd": "5072550.88"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4480",
+        "gold_rows": 35,
+        "summary_rows": 32,
+        "gold_usd": "32601237.26",
+        "summary_usd": "28536636.94",
+        "diff_usd": "4064600.32"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4500",
+        "gold_rows": 45,
+        "summary_rows": 37,
+        "gold_usd": "42276280.41",
+        "summary_usd": "33302062.52",
+        "diff_usd": "8974217.89"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4510",
+        "gold_rows": 50,
+        "summary_rows": 42,
+        "gold_usd": "39866395.81",
+        "summary_usd": "34539161.89",
+        "diff_usd": "5327233.92"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4530",
+        "gold_rows": 54,
+        "summary_rows": 47,
+        "gold_usd": "43191382.61",
+        "summary_usd": "36635634.20",
+        "diff_usd": "6555748.41"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4540",
+        "gold_rows": 47,
+        "summary_rows": 44,
+        "gold_usd": "42034590.74",
+        "summary_usd": "39097699.54",
+        "diff_usd": "2936891.20"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4550",
+        "gold_rows": 35,
+        "summary_rows": 30,
+        "gold_usd": "31460064.17",
+        "summary_usd": "25404581.79",
+        "diff_usd": "6055482.38"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4600",
+        "gold_rows": 41,
+        "summary_rows": 39,
+        "gold_usd": "29638202.43",
+        "summary_usd": "27654400.38",
+        "diff_usd": "1983802.05"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4620",
+        "gold_rows": 27,
+        "summary_rows": 20,
+        "gold_usd": "19907300.76",
+        "summary_usd": "14202720.02",
+        "diff_usd": "5704580.74"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4640",
+        "gold_rows": 63,
+        "summary_rows": 61,
+        "gold_usd": "53295081.82",
+        "summary_usd": "49300580.57",
+        "diff_usd": "3994501.25"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4650",
+        "gold_rows": 46,
+        "summary_rows": 40,
+        "gold_usd": "37912762.99",
+        "summary_usd": "31985980.58",
+        "diff_usd": "5926782.41"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4660",
+        "gold_rows": 56,
+        "summary_rows": 55,
+        "gold_usd": "45345044.72",
+        "summary_usd": "44144577.58",
+        "diff_usd": "1200467.14"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4680",
+        "gold_rows": 28,
+        "summary_rows": 26,
+        "gold_usd": "22968321.68",
+        "summary_usd": "20722024.89",
+        "diff_usd": "2246296.79"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4690",
+        "gold_rows": 60,
+        "summary_rows": 52,
+        "gold_usd": "46734396.97",
+        "summary_usd": "41877851.00",
+        "diff_usd": "4856545.97"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4700",
+        "gold_rows": 52,
+        "summary_rows": 48,
+        "gold_usd": "35470017.10",
+        "summary_usd": "36006231.55",
+        "diff_usd": "-536214.45"
+      },
+      {
+        "entity": "CI-E04",
+        "account": "4720",
+        "gold_rows": 62,
+        "summary_rows": 54,
+        "gold_usd": "50311378.53",
+        "summary_usd": "43788545.57",
+        "diff_usd": "6522832.96"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4000",
+        "gold_rows": 42,
+        "summary_rows": 35,
+        "gold_usd": "30829016.18",
+        "summary_usd": "25651265.49",
+        "diff_usd": "5177750.69"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4010",
+        "gold_rows": 53,
+        "summary_rows": 46,
+        "gold_usd": "43322880.83",
+        "summary_usd": "37676021.24",
+        "diff_usd": "5646859.59"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4020",
+        "gold_rows": 49,
+        "summary_rows": 44,
+        "gold_usd": "40061398.33",
+        "summary_usd": "37857619.90",
+        "diff_usd": "2203778.43"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4060",
+        "gold_rows": 58,
+        "summary_rows": 55,
+        "gold_usd": "49692836.57",
+        "summary_usd": "48540606.25",
+        "diff_usd": "1152230.32"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4070",
+        "gold_rows": 43,
+        "summary_rows": 41,
+        "gold_usd": "49481082.45",
+        "summary_usd": "47774592.69",
+        "diff_usd": "1706489.76"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4080",
+        "gold_rows": 56,
+        "summary_rows": 53,
+        "gold_usd": "42329779.41",
+        "summary_usd": "38274626.84",
+        "diff_usd": "4055152.57"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4090",
+        "gold_rows": 53,
+        "summary_rows": 45,
+        "gold_usd": "33700345.06",
+        "summary_usd": "30005344.26",
+        "diff_usd": "3695000.80"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4100",
+        "gold_rows": 40,
+        "summary_rows": 36,
+        "gold_usd": "38839202.92",
+        "summary_usd": "33941927.45",
+        "diff_usd": "4897275.47"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4110",
+        "gold_rows": 52,
+        "summary_rows": 47,
+        "gold_usd": "39267080.25",
+        "summary_usd": "36787852.74",
+        "diff_usd": "2479227.51"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4140",
+        "gold_rows": 45,
+        "summary_rows": 37,
+        "gold_usd": "39755112.86",
+        "summary_usd": "33018652.90",
+        "diff_usd": "6736459.96"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4150",
+        "gold_rows": 32,
+        "summary_rows": 28,
+        "gold_usd": "23785072.16",
+        "summary_usd": "20893173.32",
+        "diff_usd": "2891898.84"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4160",
+        "gold_rows": 69,
+        "summary_rows": 63,
+        "gold_usd": "52605920.16",
+        "summary_usd": "50153126.31",
+        "diff_usd": "2452793.85"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4180",
+        "gold_rows": 48,
+        "summary_rows": 44,
+        "gold_usd": "34625508.54",
+        "summary_usd": "32108517.05",
+        "diff_usd": "2516991.49"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4210",
+        "gold_rows": 46,
+        "summary_rows": 42,
+        "gold_usd": "33172281.48",
+        "summary_usd": "31720261.49",
+        "diff_usd": "1452019.99"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4230",
+        "gold_rows": 53,
+        "summary_rows": 49,
+        "gold_usd": "42754007.85",
+        "summary_usd": "41608434.25",
+        "diff_usd": "1145573.60"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4240",
+        "gold_rows": 48,
+        "summary_rows": 40,
+        "gold_usd": "33996591.97",
+        "summary_usd": "26807819.72",
+        "diff_usd": "7188772.25"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4250",
+        "gold_rows": 35,
+        "summary_rows": 31,
+        "gold_usd": "25969219.65",
+        "summary_usd": "23561994.39",
+        "diff_usd": "2407225.26"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4270",
+        "gold_rows": 52,
+        "summary_rows": 48,
+        "gold_usd": "45282980.58",
+        "summary_usd": "42515537.41",
+        "diff_usd": "2767443.17"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4280",
+        "gold_rows": 42,
+        "summary_rows": 34,
+        "gold_usd": "37347736.14",
+        "summary_usd": "29786654.77",
+        "diff_usd": "7561081.37"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4290",
+        "gold_rows": 53,
+        "summary_rows": 45,
+        "gold_usd": "46217890.30",
+        "summary_usd": "39402967.17",
+        "diff_usd": "6814923.13"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4320",
+        "gold_rows": 49,
+        "summary_rows": 45,
+        "gold_usd": "38153174.60",
+        "summary_usd": "33480068.73",
+        "diff_usd": "4673105.87"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4330",
+        "gold_rows": 54,
+        "summary_rows": 51,
+        "gold_usd": "44955581.12",
+        "summary_usd": "42421318.50",
+        "diff_usd": "2534262.62"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4340",
+        "gold_rows": 52,
+        "summary_rows": 49,
+        "gold_usd": "52774166.60",
+        "summary_usd": "47704063.37",
+        "diff_usd": "5070103.23"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4350",
+        "gold_rows": 35,
+        "summary_rows": 32,
+        "gold_usd": "25924431.28",
+        "summary_usd": "24330821.45",
+        "diff_usd": "1593609.83"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4360",
+        "gold_rows": 51,
+        "summary_rows": 43,
+        "gold_usd": "45343793.41",
+        "summary_usd": "36702501.42",
+        "diff_usd": "8641291.99"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4370",
+        "gold_rows": 55,
+        "summary_rows": 50,
+        "gold_usd": "46029278.38",
+        "summary_usd": "40258086.23",
+        "diff_usd": "5771192.15"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4380",
+        "gold_rows": 70,
+        "summary_rows": 64,
+        "gold_usd": "71333256.38",
+        "summary_usd": "65894271.48",
+        "diff_usd": "5438984.90"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4390",
+        "gold_rows": 40,
+        "summary_rows": 36,
+        "gold_usd": "28089566.31",
+        "summary_usd": "25500783.79",
+        "diff_usd": "2588782.52"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4410",
+        "gold_rows": 42,
+        "summary_rows": 34,
+        "gold_usd": "35366417.91",
+        "summary_usd": "25144060.77",
+        "diff_usd": "10222357.14"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4420",
+        "gold_rows": 46,
+        "summary_rows": 40,
+        "gold_usd": "40805120.88",
+        "summary_usd": "37011395.39",
+        "diff_usd": "3793725.49"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4430",
+        "gold_rows": 53,
+        "summary_rows": 45,
+        "gold_usd": "40017724.90",
+        "summary_usd": "34079261.24",
+        "diff_usd": "5938463.66"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4450",
+        "gold_rows": 36,
+        "summary_rows": 33,
+        "gold_usd": "28662787.70",
+        "summary_usd": "25022196.11",
+        "diff_usd": "3640591.59"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4460",
+        "gold_rows": 40,
+        "summary_rows": 33,
+        "gold_usd": "30734634.03",
+        "summary_usd": "27118393.53",
+        "diff_usd": "3616240.50"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4470",
+        "gold_rows": 36,
+        "summary_rows": 33,
+        "gold_usd": "32592743.79",
+        "summary_usd": "32068060.51",
+        "diff_usd": "524683.28"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4490",
+        "gold_rows": 52,
+        "summary_rows": 44,
+        "gold_usd": "42736434.71",
+        "summary_usd": "33762106.75",
+        "diff_usd": "8974327.96"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4500",
+        "gold_rows": 65,
+        "summary_rows": 59,
+        "gold_usd": "50762841.51",
+        "summary_usd": "46399063.12",
+        "diff_usd": "4363778.39"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4510",
+        "gold_rows": 41,
+        "summary_rows": 38,
+        "gold_usd": "34499563.48",
+        "summary_usd": "33388886.33",
+        "diff_usd": "1110677.15"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4520",
+        "gold_rows": 27,
+        "summary_rows": 21,
+        "gold_usd": "17412747.95",
+        "summary_usd": "11285356.73",
+        "diff_usd": "6127391.22"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4530",
+        "gold_rows": 43,
+        "summary_rows": 38,
+        "gold_usd": "37259044.36",
+        "summary_usd": "34290158.20",
+        "diff_usd": "2968886.16"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4550",
+        "gold_rows": 43,
+        "summary_rows": 41,
+        "gold_usd": "31631961.83",
+        "summary_usd": "29781327.83",
+        "diff_usd": "1850634.00"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4560",
+        "gold_rows": 41,
+        "summary_rows": 37,
+        "gold_usd": "34523315.91",
+        "summary_usd": "31672630.44",
+        "diff_usd": "2850685.47"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4570",
+        "gold_rows": 39,
+        "summary_rows": 38,
+        "gold_usd": "29776773.18",
+        "summary_usd": "28738193.25",
+        "diff_usd": "1038579.93"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4590",
+        "gold_rows": 38,
+        "summary_rows": 33,
+        "gold_usd": "32653105.09",
+        "summary_usd": "29212910.14",
+        "diff_usd": "3440194.95"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4600",
+        "gold_rows": 37,
+        "summary_rows": 34,
+        "gold_usd": "34247888.04",
+        "summary_usd": "28530786.94",
+        "diff_usd": "5717101.10"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4610",
+        "gold_rows": 30,
+        "summary_rows": 28,
+        "gold_usd": "27200663.40",
+        "summary_usd": "27684290.73",
+        "diff_usd": "-483627.33"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4630",
+        "gold_rows": 58,
+        "summary_rows": 52,
+        "gold_usd": "50228616.69",
+        "summary_usd": "46077223.00",
+        "diff_usd": "4151393.69"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4650",
+        "gold_rows": 42,
+        "summary_rows": 38,
+        "gold_usd": "35661848.56",
+        "summary_usd": "32205569.70",
+        "diff_usd": "3456278.86"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4690",
+        "gold_rows": 41,
+        "summary_rows": 38,
+        "gold_usd": "28231228.71",
+        "summary_usd": "26876572.59",
+        "diff_usd": "1354656.12"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4700",
+        "gold_rows": 39,
+        "summary_rows": 34,
+        "gold_usd": "28776471.11",
+        "summary_usd": "26149754.08",
+        "diff_usd": "2626717.03"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4710",
+        "gold_rows": 39,
+        "summary_rows": 36,
+        "gold_usd": "29793211.61",
+        "summary_usd": "28379588.24",
+        "diff_usd": "1413623.37"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4730",
+        "gold_rows": 44,
+        "summary_rows": 42,
+        "gold_usd": "39802888.18",
+        "summary_usd": "39153598.80",
+        "diff_usd": "649289.38"
+      },
+      {
+        "entity": "CI-E05",
+        "account": "4740",
+        "gold_rows": 41,
+        "summary_rows": 34,
+        "gold_usd": "39356508.14",
+        "summary_usd": "33587702.66",
+        "diff_usd": "5768805.48"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4000",
+        "gold_rows": 38,
+        "summary_rows": 35,
+        "gold_usd": "17866749.95",
+        "summary_usd": "16032731.25",
+        "diff_usd": "1834018.70"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4020",
+        "gold_rows": 42,
+        "summary_rows": 36,
+        "gold_usd": "25710557.22",
+        "summary_usd": "21138811.22",
+        "diff_usd": "4571746.00"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4030",
+        "gold_rows": 49,
+        "summary_rows": 47,
+        "gold_usd": "24533618.99",
+        "summary_usd": "24399319.01",
+        "diff_usd": "134299.98"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4050",
+        "gold_rows": 43,
+        "summary_rows": 38,
+        "gold_usd": "25966584.13",
+        "summary_usd": "25197775.36",
+        "diff_usd": "768808.77"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4060",
+        "gold_rows": 42,
+        "summary_rows": 41,
+        "gold_usd": "20604153.06",
+        "summary_usd": "19991825.96",
+        "diff_usd": "612327.10"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4090",
+        "gold_rows": 32,
+        "summary_rows": 30,
+        "gold_usd": "19960568.62",
+        "summary_usd": "18754259.43",
+        "diff_usd": "1206309.19"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4120",
+        "gold_rows": 35,
+        "summary_rows": 31,
+        "gold_usd": "19942833.42",
+        "summary_usd": "16886834.25",
+        "diff_usd": "3055999.17"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4130",
+        "gold_rows": 56,
+        "summary_rows": 48,
+        "gold_usd": "25151045.57",
+        "summary_usd": "23335504.69",
+        "diff_usd": "1815540.88"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4140",
+        "gold_rows": 45,
+        "summary_rows": 42,
+        "gold_usd": "24403332.92",
+        "summary_usd": "22526306.58",
+        "diff_usd": "1877026.34"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4160",
+        "gold_rows": 42,
+        "summary_rows": 35,
+        "gold_usd": "25085621.38",
+        "summary_usd": "21076329.00",
+        "diff_usd": "4009292.38"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4170",
+        "gold_rows": 18,
+        "summary_rows": 16,
+        "gold_usd": "12371327.24",
+        "summary_usd": "9819815.39",
+        "diff_usd": "2551511.85"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4180",
+        "gold_rows": 60,
+        "summary_rows": 52,
+        "gold_usd": "33409824.02",
+        "summary_usd": "30472220.16",
+        "diff_usd": "2937603.86"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4190",
+        "gold_rows": 30,
+        "summary_rows": 29,
+        "gold_usd": "15338305.45",
+        "summary_usd": "13986145.02",
+        "diff_usd": "1352160.43"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4220",
+        "gold_rows": 35,
+        "summary_rows": 31,
+        "gold_usd": "19528040.63",
+        "summary_usd": "17478677.67",
+        "diff_usd": "2049362.96"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4230",
+        "gold_rows": 32,
+        "summary_rows": 30,
+        "gold_usd": "17886770.88",
+        "summary_usd": "15951788.51",
+        "diff_usd": "1934982.37"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4240",
+        "gold_rows": 24,
+        "summary_rows": 23,
+        "gold_usd": "13471073.01",
+        "summary_usd": "12730799.31",
+        "diff_usd": "740273.70"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4250",
+        "gold_rows": 31,
+        "summary_rows": 29,
+        "gold_usd": "17918763.82",
+        "summary_usd": "16690732.85",
+        "diff_usd": "1228030.97"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4270",
+        "gold_rows": 46,
+        "summary_rows": 41,
+        "gold_usd": "20622123.98",
+        "summary_usd": "19002516.41",
+        "diff_usd": "1619607.57"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4280",
+        "gold_rows": 49,
+        "summary_rows": 48,
+        "gold_usd": "26753275.09",
+        "summary_usd": "26007175.47",
+        "diff_usd": "746099.62"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4290",
+        "gold_rows": 27,
+        "summary_rows": 26,
+        "gold_usd": "19579026.15",
+        "summary_usd": "18161580.23",
+        "diff_usd": "1417445.92"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4300",
+        "gold_rows": 42,
+        "summary_rows": 38,
+        "gold_usd": "21910967.00",
+        "summary_usd": "20059032.60",
+        "diff_usd": "1851934.40"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4320",
+        "gold_rows": 23,
+        "summary_rows": 18,
+        "gold_usd": "19465126.14",
+        "summary_usd": "14696457.91",
+        "diff_usd": "4768668.23"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4330",
+        "gold_rows": 42,
+        "summary_rows": 41,
+        "gold_usd": "27487607.21",
+        "summary_usd": "26192092.02",
+        "diff_usd": "1295515.19"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4340",
+        "gold_rows": 23,
+        "summary_rows": 19,
+        "gold_usd": "14174220.98",
+        "summary_usd": "11685839.66",
+        "diff_usd": "2488381.32"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4350",
+        "gold_rows": 61,
+        "summary_rows": 53,
+        "gold_usd": "32950793.05",
+        "summary_usd": "28393960.76",
+        "diff_usd": "4556832.29"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4370",
+        "gold_rows": 57,
+        "summary_rows": 51,
+        "gold_usd": "33543106.98",
+        "summary_usd": "28961186.32",
+        "diff_usd": "4581920.66"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4380",
+        "gold_rows": 63,
+        "summary_rows": 58,
+        "gold_usd": "36121949.32",
+        "summary_usd": "33015717.66",
+        "diff_usd": "3106231.66"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4400",
+        "gold_rows": 54,
+        "summary_rows": 47,
+        "gold_usd": "34378354.27",
+        "summary_usd": "28848401.64",
+        "diff_usd": "5529952.63"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4450",
+        "gold_rows": 45,
+        "summary_rows": 42,
+        "gold_usd": "29983901.00",
+        "summary_usd": "26694339.94",
+        "diff_usd": "3289561.06"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4460",
+        "gold_rows": 40,
+        "summary_rows": 39,
+        "gold_usd": "24857920.97",
+        "summary_usd": "24353255.18",
+        "diff_usd": "504665.79"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4480",
+        "gold_rows": 51,
+        "summary_rows": 48,
+        "gold_usd": "29117429.08",
+        "summary_usd": "28864831.90",
+        "diff_usd": "252597.18"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4490",
+        "gold_rows": 62,
+        "summary_rows": 55,
+        "gold_usd": "37651973.30",
+        "summary_usd": "31900919.78",
+        "diff_usd": "5751053.52"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4510",
+        "gold_rows": 43,
+        "summary_rows": 37,
+        "gold_usd": "22946690.65",
+        "summary_usd": "19010101.38",
+        "diff_usd": "3936589.27"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4520",
+        "gold_rows": 56,
+        "summary_rows": 49,
+        "gold_usd": "28975735.44",
+        "summary_usd": "25367602.54",
+        "diff_usd": "3608132.90"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4540",
+        "gold_rows": 37,
+        "summary_rows": 33,
+        "gold_usd": "15773098.36",
+        "summary_usd": "15632313.86",
+        "diff_usd": "140784.50"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4550",
+        "gold_rows": 49,
+        "summary_rows": 42,
+        "gold_usd": "31414743.40",
+        "summary_usd": "27546369.40",
+        "diff_usd": "3868374.00"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4570",
+        "gold_rows": 40,
+        "summary_rows": 32,
+        "gold_usd": "24342825.33",
+        "summary_usd": "19053460.95",
+        "diff_usd": "5289364.38"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4580",
+        "gold_rows": 44,
+        "summary_rows": 39,
+        "gold_usd": "30177261.76",
+        "summary_usd": "27210687.24",
+        "diff_usd": "2966574.52"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4600",
+        "gold_rows": 45,
+        "summary_rows": 38,
+        "gold_usd": "21906100.27",
+        "summary_usd": "21208628.15",
+        "diff_usd": "697472.12"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4610",
+        "gold_rows": 57,
+        "summary_rows": 50,
+        "gold_usd": "28691710.96",
+        "summary_usd": "25718939.23",
+        "diff_usd": "2972771.73"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4630",
+        "gold_rows": 51,
+        "summary_rows": 43,
+        "gold_usd": "37708211.08",
+        "summary_usd": "31040526.67",
+        "diff_usd": "6667684.41"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4640",
+        "gold_rows": 51,
+        "summary_rows": 44,
+        "gold_usd": "30642786.01",
+        "summary_usd": "25742702.21",
+        "diff_usd": "4900083.80"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4670",
+        "gold_rows": 48,
+        "summary_rows": 47,
+        "gold_usd": "25527939.02",
+        "summary_usd": "25591088.09",
+        "diff_usd": "-63149.07"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4680",
+        "gold_rows": 42,
+        "summary_rows": 36,
+        "gold_usd": "28404435.38",
+        "summary_usd": "22501755.47",
+        "diff_usd": "5902679.91"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4690",
+        "gold_rows": 37,
+        "summary_rows": 35,
+        "gold_usd": "17832465.41",
+        "summary_usd": "16766870.37",
+        "diff_usd": "1065595.04"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4710",
+        "gold_rows": 32,
+        "summary_rows": 29,
+        "gold_usd": "23927245.69",
+        "summary_usd": "20939782.23",
+        "diff_usd": "2987463.46"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4720",
+        "gold_rows": 51,
+        "summary_rows": 50,
+        "gold_usd": "24942755.03",
+        "summary_usd": "24661777.47",
+        "diff_usd": "280977.56"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4730",
+        "gold_rows": 35,
+        "summary_rows": 28,
+        "gold_usd": "25079963.95",
+        "summary_usd": "19095157.08",
+        "diff_usd": "5984806.87"
+      },
+      {
+        "entity": "CI-E06",
+        "account": "4740",
+        "gold_rows": 48,
+        "summary_rows": 43,
+        "gold_usd": "24449120.63",
+        "summary_usd": "23238613.05",
+        "diff_usd": "1210507.58"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4000",
+        "gold_rows": 45,
+        "summary_rows": 42,
+        "gold_usd": "14017243.88",
+        "summary_usd": "13796247.59",
+        "diff_usd": "220996.29"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4010",
+        "gold_rows": 42,
+        "summary_rows": 34,
+        "gold_usd": "18284016.81",
+        "summary_usd": "14924659.44",
+        "diff_usd": "3359357.37"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4020",
+        "gold_rows": 47,
+        "summary_rows": 39,
+        "gold_usd": "26162222.71",
+        "summary_usd": "22977942.64",
+        "diff_usd": "3184280.07"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4030",
+        "gold_rows": 37,
+        "summary_rows": 31,
+        "gold_usd": "24038154.25",
+        "summary_usd": "20585026.24",
+        "diff_usd": "3453128.01"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4040",
+        "gold_rows": 43,
+        "summary_rows": 35,
+        "gold_usd": "19806173.87",
+        "summary_usd": "16563045.96",
+        "diff_usd": "3243127.91"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4110",
+        "gold_rows": 33,
+        "summary_rows": 32,
+        "gold_usd": "12257800.72",
+        "summary_usd": "11125324.43",
+        "diff_usd": "1132476.29"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4130",
+        "gold_rows": 46,
+        "summary_rows": 40,
+        "gold_usd": "25273233.76",
+        "summary_usd": "21949081.99",
+        "diff_usd": "3324151.77"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4140",
+        "gold_rows": 60,
+        "summary_rows": 54,
+        "gold_usd": "25818919.88",
+        "summary_usd": "23937391.00",
+        "diff_usd": "1881528.88"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4150",
+        "gold_rows": 33,
+        "summary_rows": 32,
+        "gold_usd": "16851663.71",
+        "summary_usd": "16848142.68",
+        "diff_usd": "3521.03"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4160",
+        "gold_rows": 32,
+        "summary_rows": 24,
+        "gold_usd": "17735425.46",
+        "summary_usd": "12799528.47",
+        "diff_usd": "4935896.99"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4180",
+        "gold_rows": 44,
+        "summary_rows": 40,
+        "gold_usd": "19108629.92",
+        "summary_usd": "17611365.50",
+        "diff_usd": "1497264.42"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4210",
+        "gold_rows": 35,
+        "summary_rows": 27,
+        "gold_usd": "11216585.76",
+        "summary_usd": "8862115.78",
+        "diff_usd": "2354469.98"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4220",
+        "gold_rows": 42,
+        "summary_rows": 40,
+        "gold_usd": "28279668.34",
+        "summary_usd": "27346360.18",
+        "diff_usd": "933308.16"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4230",
+        "gold_rows": 44,
+        "summary_rows": 43,
+        "gold_usd": "22854243.42",
+        "summary_usd": "21989499.34",
+        "diff_usd": "864744.08"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4240",
+        "gold_rows": 35,
+        "summary_rows": 32,
+        "gold_usd": "15067158.81",
+        "summary_usd": "13083365.18",
+        "diff_usd": "1983793.63"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4250",
+        "gold_rows": 35,
+        "summary_rows": 29,
+        "gold_usd": "17259715.73",
+        "summary_usd": "14978452.61",
+        "diff_usd": "2281263.12"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4260",
+        "gold_rows": 45,
+        "summary_rows": 37,
+        "gold_usd": "31977982.04",
+        "summary_usd": "26098231.31",
+        "diff_usd": "5879750.73"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4270",
+        "gold_rows": 39,
+        "summary_rows": 38,
+        "gold_usd": "23133853.43",
+        "summary_usd": "22053140.19",
+        "diff_usd": "1080713.24"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4280",
+        "gold_rows": 59,
+        "summary_rows": 56,
+        "gold_usd": "32941446.98",
+        "summary_usd": "30638530.02",
+        "diff_usd": "2302916.96"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4340",
+        "gold_rows": 33,
+        "summary_rows": 28,
+        "gold_usd": "13739854.25",
+        "summary_usd": "11550743.18",
+        "diff_usd": "2189111.07"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4350",
+        "gold_rows": 30,
+        "summary_rows": 29,
+        "gold_usd": "13752175.42",
+        "summary_usd": "13303536.81",
+        "diff_usd": "448638.61"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4360",
+        "gold_rows": 34,
+        "summary_rows": 27,
+        "gold_usd": "14961784.12",
+        "summary_usd": "11405670.43",
+        "diff_usd": "3556113.69"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4370",
+        "gold_rows": 41,
+        "summary_rows": 40,
+        "gold_usd": "21795353.87",
+        "summary_usd": "21767626.91",
+        "diff_usd": "27726.96"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4380",
+        "gold_rows": 45,
+        "summary_rows": 41,
+        "gold_usd": "22893230.93",
+        "summary_usd": "21801565.48",
+        "diff_usd": "1091665.45"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4390",
+        "gold_rows": 45,
+        "summary_rows": 37,
+        "gold_usd": "20168382.19",
+        "summary_usd": "15547394.44",
+        "diff_usd": "4620987.75"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4400",
+        "gold_rows": 31,
+        "summary_rows": 30,
+        "gold_usd": "14035820.72",
+        "summary_usd": "12944702.69",
+        "diff_usd": "1091118.03"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4420",
+        "gold_rows": 44,
+        "summary_rows": 37,
+        "gold_usd": "19974170.70",
+        "summary_usd": "15688868.51",
+        "diff_usd": "4285302.19"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4430",
+        "gold_rows": 38,
+        "summary_rows": 31,
+        "gold_usd": "11103487.25",
+        "summary_usd": "9656313.62",
+        "diff_usd": "1447173.63"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4450",
+        "gold_rows": 29,
+        "summary_rows": 23,
+        "gold_usd": "12731990.05",
+        "summary_usd": "10489611.66",
+        "diff_usd": "2242378.39"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4460",
+        "gold_rows": 46,
+        "summary_rows": 45,
+        "gold_usd": "23210693.00",
+        "summary_usd": "21895507.24",
+        "diff_usd": "1315185.76"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4470",
+        "gold_rows": 53,
+        "summary_rows": 45,
+        "gold_usd": "32402716.90",
+        "summary_usd": "26962793.96",
+        "diff_usd": "5439922.94"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4480",
+        "gold_rows": 34,
+        "summary_rows": 30,
+        "gold_usd": "17850415.67",
+        "summary_usd": "15589553.08",
+        "diff_usd": "2260862.59"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4490",
+        "gold_rows": 36,
+        "summary_rows": 35,
+        "gold_usd": "17991541.71",
+        "summary_usd": "18054686.76",
+        "diff_usd": "-63145.05"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4520",
+        "gold_rows": 50,
+        "summary_rows": 48,
+        "gold_usd": "26868720.68",
+        "summary_usd": "24886724.77",
+        "diff_usd": "1981995.91"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4530",
+        "gold_rows": 58,
+        "summary_rows": 52,
+        "gold_usd": "28006120.70",
+        "summary_usd": "24297012.95",
+        "diff_usd": "3709107.75"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4540",
+        "gold_rows": 37,
+        "summary_rows": 32,
+        "gold_usd": "15310734.57",
+        "summary_usd": "15358387.43",
+        "diff_usd": "-47652.86"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4560",
+        "gold_rows": 35,
+        "summary_rows": 34,
+        "gold_usd": "19055580.10",
+        "summary_usd": "18673054.66",
+        "diff_usd": "382525.44"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4570",
+        "gold_rows": 44,
+        "summary_rows": 39,
+        "gold_usd": "20515097.36",
+        "summary_usd": "17241167.96",
+        "diff_usd": "3273929.40"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4580",
+        "gold_rows": 40,
+        "summary_rows": 36,
+        "gold_usd": "18929367.81",
+        "summary_usd": "14511306.80",
+        "diff_usd": "4418061.01"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4600",
+        "gold_rows": 54,
+        "summary_rows": 49,
+        "gold_usd": "21646567.25",
+        "summary_usd": "20753796.71",
+        "diff_usd": "892770.54"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4630",
+        "gold_rows": 57,
+        "summary_rows": 50,
+        "gold_usd": "19314386.87",
+        "summary_usd": "17208476.78",
+        "diff_usd": "2105910.09"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4640",
+        "gold_rows": 40,
+        "summary_rows": 39,
+        "gold_usd": "20331741.27",
+        "summary_usd": "19635092.90",
+        "diff_usd": "696648.37"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4650",
+        "gold_rows": 47,
+        "summary_rows": 43,
+        "gold_usd": "26415560.82",
+        "summary_usd": "23159223.09",
+        "diff_usd": "3256337.73"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4660",
+        "gold_rows": 35,
+        "summary_rows": 31,
+        "gold_usd": "20646251.67",
+        "summary_usd": "17674209.78",
+        "diff_usd": "2972041.89"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4670",
+        "gold_rows": 33,
+        "summary_rows": 32,
+        "gold_usd": "18016107.52",
+        "summary_usd": "17939918.04",
+        "diff_usd": "76189.48"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4680",
+        "gold_rows": 39,
+        "summary_rows": 31,
+        "gold_usd": "16799584.74",
+        "summary_usd": "12738643.29",
+        "diff_usd": "4060941.45"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4690",
+        "gold_rows": 54,
+        "summary_rows": 49,
+        "gold_usd": "26112154.08",
+        "summary_usd": "22766035.63",
+        "diff_usd": "3346118.45"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4700",
+        "gold_rows": 30,
+        "summary_rows": 27,
+        "gold_usd": "15629770.01",
+        "summary_usd": "13179653.26",
+        "diff_usd": "2450116.75"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4710",
+        "gold_rows": 35,
+        "summary_rows": 34,
+        "gold_usd": "17267693.67",
+        "summary_usd": "16926925.09",
+        "diff_usd": "340768.58"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4720",
+        "gold_rows": 36,
+        "summary_rows": 33,
+        "gold_usd": "12892978.72",
+        "summary_usd": "11205529.67",
+        "diff_usd": "1687449.05"
+      },
+      {
+        "entity": "CI-E07",
+        "account": "4730",
+        "gold_rows": 57,
+        "summary_rows": 51,
+        "gold_usd": "22007921.20",
+        "summary_usd": "18987336.56",
+        "diff_usd": "3020584.64"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4000",
+        "gold_rows": 41,
+        "summary_rows": 35,
+        "gold_usd": "3294598.47",
+        "summary_usd": "2595027.42",
+        "diff_usd": "699571.05"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4020",
+        "gold_rows": 20,
+        "summary_rows": 18,
+        "gold_usd": "1231227.53",
+        "summary_usd": "1239219.69",
+        "diff_usd": "-7992.16"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4040",
+        "gold_rows": 41,
+        "summary_rows": 33,
+        "gold_usd": "2926138.32",
+        "summary_usd": "2360200.43",
+        "diff_usd": "565937.89"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4050",
+        "gold_rows": 49,
+        "summary_rows": 41,
+        "gold_usd": "3915011.15",
+        "summary_usd": "3145675.28",
+        "diff_usd": "769335.87"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4060",
+        "gold_rows": 57,
+        "summary_rows": 51,
+        "gold_usd": "3656444.44",
+        "summary_usd": "3159196.47",
+        "diff_usd": "497247.97"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4070",
+        "gold_rows": 31,
+        "summary_rows": 25,
+        "gold_usd": "1847544.20",
+        "summary_usd": "1532193.91",
+        "diff_usd": "315350.29"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4080",
+        "gold_rows": 47,
+        "summary_rows": 46,
+        "gold_usd": "3753246.04",
+        "summary_usd": "3764725.37",
+        "diff_usd": "-11479.33"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4090",
+        "gold_rows": 28,
+        "summary_rows": 22,
+        "gold_usd": "1734402.54",
+        "summary_usd": "1270345.86",
+        "diff_usd": "464056.68"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4100",
+        "gold_rows": 37,
+        "summary_rows": 32,
+        "gold_usd": "1953095.81",
+        "summary_usd": "1588138.16",
+        "diff_usd": "364957.65"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4110",
+        "gold_rows": 35,
+        "summary_rows": 31,
+        "gold_usd": "3033919.31",
+        "summary_usd": "2739639.73",
+        "diff_usd": "294279.58"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4130",
+        "gold_rows": 31,
+        "summary_rows": 27,
+        "gold_usd": "2700869.84",
+        "summary_usd": "2273647.08",
+        "diff_usd": "427222.76"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4140",
+        "gold_rows": 47,
+        "summary_rows": 40,
+        "gold_usd": "3723608.83",
+        "summary_usd": "3199738.77",
+        "diff_usd": "523870.06"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4150",
+        "gold_rows": 47,
+        "summary_rows": 45,
+        "gold_usd": "2919984.62",
+        "summary_usd": "2789836.51",
+        "diff_usd": "130148.11"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4160",
+        "gold_rows": 56,
+        "summary_rows": 49,
+        "gold_usd": "3525067.61",
+        "summary_usd": "3046750.73",
+        "diff_usd": "478316.88"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4170",
+        "gold_rows": 42,
+        "summary_rows": 34,
+        "gold_usd": "3332131.78",
+        "summary_usd": "2647271.15",
+        "diff_usd": "684860.63"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4180",
+        "gold_rows": 49,
+        "summary_rows": 47,
+        "gold_usd": "3292681.29",
+        "summary_usd": "3129888.88",
+        "diff_usd": "162792.41"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4210",
+        "gold_rows": 67,
+        "summary_rows": 59,
+        "gold_usd": "4436452.61",
+        "summary_usd": "3631817.97",
+        "diff_usd": "804634.64"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4230",
+        "gold_rows": 38,
+        "summary_rows": 31,
+        "gold_usd": "3328158.45",
+        "summary_usd": "2616744.43",
+        "diff_usd": "711414.02"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4240",
+        "gold_rows": 31,
+        "summary_rows": 29,
+        "gold_usd": "2880189.17",
+        "summary_usd": "2718516.16",
+        "diff_usd": "161673.01"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4250",
+        "gold_rows": 47,
+        "summary_rows": 40,
+        "gold_usd": "2550464.36",
+        "summary_usd": "2058825.87",
+        "diff_usd": "491638.49"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4260",
+        "gold_rows": 49,
+        "summary_rows": 42,
+        "gold_usd": "3392252.21",
+        "summary_usd": "2678885.52",
+        "diff_usd": "713366.69"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4290",
+        "gold_rows": 41,
+        "summary_rows": 36,
+        "gold_usd": "2559280.98",
+        "summary_usd": "2245389.70",
+        "diff_usd": "313891.28"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4300",
+        "gold_rows": 53,
+        "summary_rows": 46,
+        "gold_usd": "2773284.98",
+        "summary_usd": "2443664.15",
+        "diff_usd": "329620.83"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4310",
+        "gold_rows": 53,
+        "summary_rows": 51,
+        "gold_usd": "4255624.63",
+        "summary_usd": "3963312.66",
+        "diff_usd": "292311.97"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4320",
+        "gold_rows": 47,
+        "summary_rows": 45,
+        "gold_usd": "3366863.62",
+        "summary_usd": "3291887.81",
+        "diff_usd": "74975.81"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4340",
+        "gold_rows": 42,
+        "summary_rows": 36,
+        "gold_usd": "3250797.11",
+        "summary_usd": "2827008.16",
+        "diff_usd": "423788.95"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4350",
+        "gold_rows": 42,
+        "summary_rows": 37,
+        "gold_usd": "2511475.32",
+        "summary_usd": "2104973.97",
+        "diff_usd": "406501.35"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4360",
+        "gold_rows": 44,
+        "summary_rows": 36,
+        "gold_usd": "2952174.57",
+        "summary_usd": "2233535.94",
+        "diff_usd": "718638.63"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4370",
+        "gold_rows": 43,
+        "summary_rows": 41,
+        "gold_usd": "3496950.44",
+        "summary_usd": "3290532.08",
+        "diff_usd": "206418.36"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4380",
+        "gold_rows": 28,
+        "summary_rows": 27,
+        "gold_usd": "1751223.92",
+        "summary_usd": "1695310.88",
+        "diff_usd": "55913.04"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4400",
+        "gold_rows": 49,
+        "summary_rows": 42,
+        "gold_usd": "4215744.68",
+        "summary_usd": "3624380.09",
+        "diff_usd": "591364.59"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4410",
+        "gold_rows": 50,
+        "summary_rows": 42,
+        "gold_usd": "3672304.21",
+        "summary_usd": "2883985.88",
+        "diff_usd": "788318.33"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4420",
+        "gold_rows": 47,
+        "summary_rows": 39,
+        "gold_usd": "2598471.70",
+        "summary_usd": "2411107.72",
+        "diff_usd": "187363.98"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4430",
+        "gold_rows": 53,
+        "summary_rows": 45,
+        "gold_usd": "3971520.19",
+        "summary_usd": "3843556.60",
+        "diff_usd": "127963.59"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4490",
+        "gold_rows": 28,
+        "summary_rows": 25,
+        "gold_usd": "2031778.85",
+        "summary_usd": "1715993.54",
+        "diff_usd": "315785.31"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4500",
+        "gold_rows": 36,
+        "summary_rows": 30,
+        "gold_usd": "3944868.30",
+        "summary_usd": "3102688.49",
+        "diff_usd": "842179.81"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4520",
+        "gold_rows": 75,
+        "summary_rows": 67,
+        "gold_usd": "5553098.70",
+        "summary_usd": "4810823.63",
+        "diff_usd": "742275.07"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4560",
+        "gold_rows": 46,
+        "summary_rows": 42,
+        "gold_usd": "3727940.76",
+        "summary_usd": "3250944.86",
+        "diff_usd": "476995.90"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4570",
+        "gold_rows": 58,
+        "summary_rows": 56,
+        "gold_usd": "4070940.25",
+        "summary_usd": "3860911.78",
+        "diff_usd": "210028.47"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4580",
+        "gold_rows": 56,
+        "summary_rows": 50,
+        "gold_usd": "3740625.21",
+        "summary_usd": "3178651.62",
+        "diff_usd": "561973.59"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4620",
+        "gold_rows": 33,
+        "summary_rows": 31,
+        "gold_usd": "2485897.67",
+        "summary_usd": "2400958.69",
+        "diff_usd": "84938.98"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4630",
+        "gold_rows": 40,
+        "summary_rows": 39,
+        "gold_usd": "2053142.97",
+        "summary_usd": "1980331.43",
+        "diff_usd": "72811.54"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4640",
+        "gold_rows": 51,
+        "summary_rows": 50,
+        "gold_usd": "4361894.16",
+        "summary_usd": "4242907.64",
+        "diff_usd": "118986.52"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4650",
+        "gold_rows": 43,
+        "summary_rows": 36,
+        "gold_usd": "3195834.01",
+        "summary_usd": "2490164.92",
+        "diff_usd": "705669.09"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4660",
+        "gold_rows": 51,
+        "summary_rows": 48,
+        "gold_usd": "4075641.45",
+        "summary_usd": "3832936.21",
+        "diff_usd": "242705.24"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4670",
+        "gold_rows": 59,
+        "summary_rows": 52,
+        "gold_usd": "4699047.99",
+        "summary_usd": "4378584.45",
+        "diff_usd": "320463.54"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4700",
+        "gold_rows": 47,
+        "summary_rows": 40,
+        "gold_usd": "2612233.93",
+        "summary_usd": "2266046.92",
+        "diff_usd": "346187.01"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4710",
+        "gold_rows": 31,
+        "summary_rows": 30,
+        "gold_usd": "2172135.43",
+        "summary_usd": "2151690.83",
+        "diff_usd": "20444.60"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4720",
+        "gold_rows": 52,
+        "summary_rows": 51,
+        "gold_usd": "2540923.80",
+        "summary_usd": "2557563.93",
+        "diff_usd": "-16640.13"
+      },
+      {
+        "entity": "CI-E08",
+        "account": "4730",
+        "gold_rows": 49,
+        "summary_rows": 41,
+        "gold_usd": "2928319.39",
+        "summary_usd": "2485648.32",
+        "diff_usd": "442671.07"
+      }
+    ],
+    "break_count": 406,
+    "gold_total_usd": "15899271064.20",
+    "summary_total_usd": "14730603654.52",
+    "diff_total_usd": "1168667409.68"
+  },
+  "rollback": {
+    "restored_to_version": 1,
+    "new_version": 3,
+    "rows_after_rollback": 20642,
+    "matches_pre_restore_state": true
+  },
+  "status": "ROLLED_BACK",
+  "total_s": 5.98
+}

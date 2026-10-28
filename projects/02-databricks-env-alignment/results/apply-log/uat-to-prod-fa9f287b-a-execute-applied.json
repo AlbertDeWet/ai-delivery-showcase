@@ -1,0 +1,102 @@
+{
+  "plan_id": "uat-to-prod-fa9f287b-a",
+  "env": "prod",
+  "mode": "execute",
+  "items": 15,
+  "started_utc": "2026-10-23T20:20:51.358673+00:00",
+  "lint": [
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "001",
+      "message": "core.cfg_channel: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R4",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "item": "001",
+      "message": "core.cfg_channel: drops and rebuilds the table - confirm intent"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "002",
+      "message": "core.cfg_commission: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "004",
+      "message": "core.cfg_fx_source: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "005",
+      "message": "core.cfg_kpi_threshold: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R4",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "item": "005",
+      "message": "core.cfg_kpi_threshold: removes config key(s) ['kpi_99'] - confirm intent"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "006",
+      "message": "core.cfg_report_map: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "007",
+      "message": "core.cfg_reserve_factor: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "008",
+      "message": "core.cfg_segment: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "009",
+      "message": "core.cfg_tax_rate: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    },
+    {
+      "rule": "R5",
+      "severity": "HIGH",
+      "blocking": false,
+      "item": "015",
+      "message": "core.v_renewals_due: overwrites PROD-only change (a hotfix that exists in no other environment) - back-port it to the source or accept explicitly"
+    }
+  ],
+  "backup_dir": "workspaces/_backups/prod/20261023T202052372250Z-uat-to-prod-fa9f287b-a",
+  "tests_before": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": false,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "tests_after": {
+    "T1_core_views_queryable": true,
+    "T2_changed_objects_match_source": true,
+    "T3_protected_team_untouched": true,
+    "T4_data_tables_unchanged": true,
+    "T5_job_dependencies_exist": true
+  },
+  "status": "applied"
+}

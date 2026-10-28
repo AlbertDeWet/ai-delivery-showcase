@@ -1,0 +1,57 @@
+{
+  "_comment": "ARC enforcement hooks. Merged into ~/.claude/settings.json by install_hooks.py. Every handler no-ops unless the project has an .arc marker file, so installing this globally is safe.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"__ARC_GUARD__\" pretooluse"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|NotebookEdit|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"__ARC_GUARD__\" posttooluse"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"__ARC_GUARD__\" userpromptsubmit"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"__ARC_GUARD__\" stop"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"__ARC_GUARD__\" sessionstart"
+          }
+        ]
+      }
+    ]
+  }
+}

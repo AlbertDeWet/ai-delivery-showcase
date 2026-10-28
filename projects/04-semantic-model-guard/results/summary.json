@@ -1,0 +1,185 @@
+{
+  "envs": {
+    "DEV": {
+      "est_mb_before": 32.889,
+      "est_mb_after": 1.535,
+      "tables_before": 4,
+      "tables_after": 4,
+      "columns_before": 43,
+      "columns_after": 17,
+      "fact_columns_before": 32,
+      "fact_columns_after": 7,
+      "measures_before": 26,
+      "measures_after": 16,
+      "broken_before": 10,
+      "broken_after": 0,
+      "removed_columns": 26,
+      "removed_measures": 10,
+      "blocked_measures": 0,
+      "consumers_before": "3/3",
+      "consumers_after": "3/3",
+      "regression_checks": 108,
+      "regression": {
+        "UNTESTED": 4,
+        "IDENTICAL": 64,
+        "EXPECTED: broken before; removed by trim": 40
+      },
+      "unexpected": 0,
+      "untested": 4,
+      "untested_measures": [
+        "Avg Net per Claim"
+      ],
+      "untested_acknowledged": {
+        "Avg Net per Claim": {
+          "measure": "Avg Net per Claim",
+          "definition_sha256": "b090638f5f3e63eb429c41f9f7c8aa317039ad50106f98035cd307155634c1f5",
+          "reviewer": "PENDING - awaiting an independent human reviewer",
+          "reviewer_role": "human",
+          "date": "2026-10-23",
+          "reason": "AVERAGEX is outside the regression translator's DAX subset. To sign: read the TMDL, confirm this definition (hash above) is unchanged by the trim and that PaidAmount and RecoveryAmount are kept, then put your own name in 'reviewer' and set 'date'. A tool or agent may not sign.",
+          "accepted": false,
+          "rejected_because": "placeholder reviewer"
+        }
+      },
+      "untested_signed_off": [],
+      "safety_checks": {
+        "planned_columns_gone": true,
+        "planned_measures_gone": true,
+        "kept_columns_intact": true,
+        "kept_measures_intact": true,
+        "untouched_files_byte_identical": true,
+        "trimmed_model_still_in_supported_subset": true,
+        "no_new_broken_measures": true,
+        "consumers_pass": true,
+        "backup_matches_original": true
+      },
+      "trim_safe": true,
+      "safe": false,
+      "status": "pending human sign-off (4 untested)",
+      "refreshed_data_rows": 0
+    },
+    "UAT": {
+      "est_mb_before": 48.732,
+      "est_mb_after": 2.102,
+      "tables_before": 4,
+      "tables_after": 4,
+      "columns_before": 44,
+      "columns_after": 17,
+      "fact_columns_before": 33,
+      "fact_columns_after": 7,
+      "measures_before": 24,
+      "measures_after": 16,
+      "broken_before": 8,
+      "broken_after": 0,
+      "removed_columns": 27,
+      "removed_measures": 8,
+      "blocked_measures": 0,
+      "consumers_before": "3/3",
+      "consumers_after": "3/3",
+      "regression_checks": 100,
+      "regression": {
+        "UNTESTED": 4,
+        "IDENTICAL": 64,
+        "EXPECTED: broken before; removed by trim": 32
+      },
+      "unexpected": 0,
+      "untested": 4,
+      "untested_measures": [
+        "Avg Net per Claim"
+      ],
+      "untested_acknowledged": {
+        "Avg Net per Claim": {
+          "measure": "Avg Net per Claim",
+          "definition_sha256": "b090638f5f3e63eb429c41f9f7c8aa317039ad50106f98035cd307155634c1f5",
+          "reviewer": "PENDING - awaiting an independent human reviewer",
+          "reviewer_role": "human",
+          "date": "2026-10-23",
+          "reason": "AVERAGEX is outside the regression translator's DAX subset. To sign: read the TMDL, confirm this definition (hash above) is unchanged by the trim and that PaidAmount and RecoveryAmount are kept, then put your own name in 'reviewer' and set 'date'. A tool or agent may not sign.",
+          "accepted": false,
+          "rejected_because": "placeholder reviewer"
+        }
+      },
+      "untested_signed_off": [],
+      "safety_checks": {
+        "planned_columns_gone": true,
+        "planned_measures_gone": true,
+        "kept_columns_intact": true,
+        "kept_measures_intact": true,
+        "untouched_files_byte_identical": true,
+        "trimmed_model_still_in_supported_subset": true,
+        "no_new_broken_measures": true,
+        "consumers_pass": true,
+        "backup_matches_original": true
+      },
+      "trim_safe": true,
+      "safe": false,
+      "status": "pending human sign-off (4 untested)",
+      "refreshed_data_rows": 0
+    },
+    "PROD": {
+      "est_mb_before": 64.651,
+      "est_mb_after": 2.659,
+      "tables_before": 4,
+      "tables_after": 4,
+      "columns_before": 43,
+      "columns_after": 17,
+      "fact_columns_before": 32,
+      "fact_columns_after": 7,
+      "measures_before": 25,
+      "measures_after": 16,
+      "broken_before": 9,
+      "broken_after": 0,
+      "removed_columns": 26,
+      "removed_measures": 9,
+      "blocked_measures": 0,
+      "consumers_before": "3/3",
+      "consumers_after": "3/3",
+      "regression_checks": 104,
+      "regression": {
+        "UNTESTED": 4,
+        "EXPECTED: fresh data": 50,
+        "EXPECTED: broken before; removed by trim": 36,
+        "IDENTICAL": 14
+      },
+      "unexpected": 0,
+      "untested": 4,
+      "untested_measures": [
+        "Avg Net per Claim"
+      ],
+      "untested_acknowledged": {
+        "Avg Net per Claim": {
+          "measure": "Avg Net per Claim",
+          "definition_sha256": "b090638f5f3e63eb429c41f9f7c8aa317039ad50106f98035cd307155634c1f5",
+          "reviewer": "PENDING - awaiting an independent human reviewer",
+          "reviewer_role": "human",
+          "date": "2026-10-23",
+          "reason": "AVERAGEX is outside the regression translator's DAX subset. To sign: read the TMDL, confirm this definition (hash above) is unchanged by the trim and that PaidAmount and RecoveryAmount are kept, then put your own name in 'reviewer' and set 'date'. A tool or agent may not sign.",
+          "accepted": false,
+          "rejected_because": "placeholder reviewer"
+        }
+      },
+      "untested_signed_off": [],
+      "safety_checks": {
+        "planned_columns_gone": true,
+        "planned_measures_gone": true,
+        "kept_columns_intact": true,
+        "kept_measures_intact": true,
+        "untouched_files_byte_identical": true,
+        "trimmed_model_still_in_supported_subset": true,
+        "no_new_broken_measures": true,
+        "consumers_pass": true,
+        "backup_matches_original": true
+      },
+      "trim_safe": true,
+      "safe": false,
+      "status": "pending human sign-off (4 untested)",
+      "refreshed_data_rows": 2000
+    }
+  },
+  "note": "Sizes are ESTIMATES from synthetic data stats, not engine-measured.",
+  "drift_before": 5,
+  "drift_after": 1,
+  "drift_after_items": [
+    "[Avg Paid per Claim]"
+  ]
+}

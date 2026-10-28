@@ -1,0 +1,47 @@
+# Recorded test runs (append-only)
+
+# run of 2026-10-23T15:41:33Z
+
+## builder
+$ pytest tests --ignore=tests/adversarial
+27 passed in 617.86s (0:10:17)
+
+## adversary
+$ pytest tests/adversarial
+2 failed, 52 passed in 647.39s (0:10:47)
+## adversary (2026-10-23T16:14:05Z)
+$ pytest tests/adversarial
+1 failed, 53 passed in 305.48s (0:05:05)
+
+## builder (2026-10-23T16:20:17Z)
+$ pytest tests --ignore=tests/adversarial
+27 passed in 170.74s (0:02:50)
+
+## adversary (2026-10-23T16:22:41Z)
+$ pytest tests/adversarial
+1 failed, 53 passed in 136.87s (0:02:16)
+
+## adversary (2026-10-23T17:19:42Z)
+$ pytest tests/adversarial
+75 passed in 138.28s (0:02:18)
+
+## builder (2026-10-23T17:22:14Z)
+$ pytest tests --ignore=tests/adversarial
+31 passed in 74.99s (0:01:14)
+
+## adversary (2026-10-23T17:39:02Z)
+$ pytest tests/adversarial
+96 passed in 126.41s (0:02:06)
+
+## builder (2026-10-23T17:41:48Z)
+$ pytest tests --ignore=tests/adversarial
+38 passed in 97.48s (0:01:37)
+
+## adversary (2026-10-23T17:59:58Z)
+$ pytest tests/adversarial
+113 passed in 171.27s (0:02:51)
+
+## builder (2026-10-23T18:03:05Z)
+$ pytest tests --ignore=tests/adversarial
+38 passed in 114.62s (0:01:54)
+

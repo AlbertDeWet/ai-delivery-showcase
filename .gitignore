@@ -1,0 +1,5 @@
+denylist.txt
+.venv/
+__pycache__/
+*.duckdb
+
